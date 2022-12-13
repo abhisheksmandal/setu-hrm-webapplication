@@ -16,6 +16,13 @@ const Grid = lazy(() => import("../views/ui/Grid"));
 const Tables = lazy(() => import("../views/ui/Tables"));
 const Forms = lazy(() => import("../views/ui/Forms"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
+const Project = lazy(() => import("../views/ui/Project"));
+const EmployeeRegistration = lazy(() => import("../views/ui/EmployeeRegistration"));
+const ProjectAllocation = lazy(() => import("../views/ui/ProjectAllocation"));
+const TaskAllocation = lazy(() => import("../views/ui/TaskAllocation"));
+const Employees = lazy(() => import("../views/ui/Employees"));
+const Leaves = lazy(() => import("../views/ui/Leaves"));
+const Reports = lazy(() => import("../views/ui/Reports"));
 
 /*****Routes******/
 
@@ -35,6 +42,13 @@ const ThemeRoutes = [
       { path: "/table", exact: true, element: <Tables /> },
       { path: "/forms", exact: true, element: <Forms /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
+      { path: "/project", exact: true, element: <Project /> },
+      { path: "/employeeregistration", exact: true, element: <EmployeeRegistration /> },
+      { path: "/projectallocation", exact: true, element: <ProjectAllocation /> },
+      { path: "/taskallocation", exact: true, element: <TaskAllocation /> },
+      { path: "/employees", exact: true, element: <Employees /> },
+      { path: "/leaves", exact: true, element: <Leaves /> },
+      { path: "/reports", exact: true, element: <Reports /> },
     ],
   },
 ];

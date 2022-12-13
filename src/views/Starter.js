@@ -47,8 +47,8 @@ const BlogData = [
 const Starter = () => {
   return (
     <div>
-      {/***Top Cards***/}
-      {/* <Row>
+      **Top Cards**
+      <Row>
         <Col sm="6" lg="3">
           <TopCards
             bg="bg-light-success text-success"
@@ -85,24 +85,24 @@ const Starter = () => {
             icon="bi bi-bag"
           />
         </Col>
-      </Row> */}
-      {/***Sales & Feed***/}
-      {/* <Row>
+      </Row>
+      **Sales & Feed**
+      <Row>
         <Col sm="6" lg="6" xl="7" xxl="8">
           <SalesChart />
         </Col>
         <Col sm="6" lg="6" xl="5" xxl="4">
           <Feeds />
         </Col>
-      </Row> */}
-      {/***Table ***/}
-      {/* <Row>
+      </Row>
+      **Table **
+      <Row>
         <Col lg="12">
           <ProjectTables />
         </Col>
-      </Row> */}
-      {/***Blog Cards***/}
-      {/* <Row>
+      </Row>
+      **Blog Cards**
+      <Row>
         {BlogData.map((blg, index) => (
           <Col sm="6" lg="6" xl="3" key={index}>
             <Blog
@@ -114,7 +114,34 @@ const Starter = () => {
             />
           </Col>
         ))}
-      </Row> */}
+      </Row>
+
+
+      {/* Dashboard Code Starts Here */}
+      <Row>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+        <Col>
+        wovoi</Col>
+      </Row>
     </div>
   );
 };
