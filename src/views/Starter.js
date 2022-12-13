@@ -120,27 +120,8 @@ const Starter = () => {
       {/* Dashboard Code Starts Here */}
       <Row>
         <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
-        <Col>
-        wovoi</Col>
+        
+        </Col>
       </Row>
     </div>
   );
