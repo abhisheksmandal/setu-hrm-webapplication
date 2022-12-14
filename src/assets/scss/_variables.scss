@@ -14,6 +14,8 @@ $warning: #ee9d01;
 $dark: #343a40;
 $light: #eaf2fb;
 $secondary: #35363b;
+$white: #ffffff;
+$notificationRow: #7cacff;
 
 $theme-colors: (
   "primary": $primary,
@@ -29,6 +31,8 @@ $theme-colors: (
   "light-info": #d3edfa,
   "light-warning": #f8ecdc,
   "light-danger": #f8dddd,
+  "buttonColor": #1f1f5e,
+  "notificationRow": #7cacff,
 );
 // scss-docs-start gray-color-variables
 $white: #fff !default;

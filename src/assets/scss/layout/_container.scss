@@ -29,3 +29,22 @@
 .button-group .btn {
   margin: 3px;
 }
+
+// Code added by Abhishek
+
+.taskDisplayer {
+  border-radius: 15px;
+}
+
+.leaveDisplayer {
+  background-color: $success;
+}
+
+.notificationRow {
+  background-color: $notificationRow;
+}
+
+.tableBorder {
+  border-radius: 20px;
+  background-color: black;
+}
