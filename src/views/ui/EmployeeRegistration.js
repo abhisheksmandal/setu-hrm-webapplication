@@ -1,9 +1,13 @@
+
+
 const EmployeeRegistration = () => {
     return (
       <div>
-        Employee Registration
+        <h2 className="text-center p-4">Employee Registration</h2>
+        
       </div>
     );
   };
+  
   
   export default EmployeeRegistration;

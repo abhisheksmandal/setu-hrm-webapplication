@@ -1,25 +1,28 @@
+import React, { Component } from 'react'
 import {
-  Col,
-  Row,
-  Container,
-  Card,
-  CardBody,
-  CardTitle,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Table,
-  Button,
-  ButtonGroup,
-  Badge,
-} from "reactstrap";
+    Col,
+    Row,
+    Container,
+    Card,
+    CardBody,
+    CardTitle,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    FormText,
+    Table,
+    Button,
+    ButtonGroup,
+    Badge,
+  } from "reactstrap";
 
-const TaskAllocation = () => {
-  return (
-    <div>
-      <Card>
+  
+export default class  extends Component {
+  render() {
+    return (
+      <div>
+        <Card>
         <CardTitle tag="h3" className="border-bottom p-3 mb-0 text-center ">
           {/* <i className="bi bi-bell me-2"> </i> */}
           Task Allocation
@@ -100,21 +103,8 @@ const TaskAllocation = () => {
                   </FormGroup>
                 </Col>
               </Row>
-              {/* <Row className="mt-3">
-              <Col xs="6" sm="4">
-              <FormGroup>
               
-               <Label for="stat">Status</Label>
-                <Input id="status" name="status" type="select">
-                  <option>Complete</option>
-                  <option>Pending</option>
-                  <option>Active</option>
-                  
-                </Input>
-              </FormGroup>
-              </Col>
-              </Row> */}
-              <Row className="mt-3">
+              {/* <Row className="mt-3">
                 <Col xs="6" sm="4">
                   <FormGroup>
                     <Label for="File">File</Label>
@@ -124,7 +114,7 @@ const TaskAllocation = () => {
                 <Col sm="4" className="d-flex align-items-center mt-3">
                   <Button color="info" >Upload</Button>
                 </Col>
-              </Row>
+              </Row> */}
 
               <Row className="mt-3">
                 <Col xs="6" sm="4">
@@ -156,9 +146,39 @@ const TaskAllocation = () => {
                 </Col>
               </Row>
               <Row className="mt-3">
-                <Col className="text-center">
-                  <Button color="primary" href="task.js">
-                    Submit
+              <Col xs="6" sm="4">
+              <FormGroup>
+              
+               <Label for="stat">Status</Label>
+                <Input id="status" name="status" type="select">
+                  <option>Complete</option>
+                  <option>Pending</option>
+                  <option>Active</option>
+                </Input>
+              </FormGroup>
+              </Col>
+              <Col xs="6" sm="4">
+              <FormGroup>
+                  <Label for="startDate">Start Date</Label>
+                  <Input id="startdate" name="date" type="date" />
+                </FormGroup>
+              </Col>
+              <Col sm="4">
+              <FormGroup>
+                  <Label for="EstDate">Estimated Date</Label>
+                  <Input id="Estdate" name="date" type="date" />
+                </FormGroup>
+              </Col>
+              </Row>
+              <Row className="mt-3">
+                <Col sm="4" >
+                  <Button color="primary" href="">
+                    Edit
+                  </Button>
+                </Col>
+                <Col sm="4" >
+                  <Button color="primary" href="">
+                    Transfer
                   </Button>
                 </Col>
               </Row>
@@ -166,8 +186,7 @@ const TaskAllocation = () => {
           </Container>
         </CardBody>
       </Card>
-    </div>
-  );
-};
-
-export default TaskAllocation;
+      </div>
+    )
+  }
+}
