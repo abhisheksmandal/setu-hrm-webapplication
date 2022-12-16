@@ -14,7 +14,7 @@ import {
   Table,
 } from "reactstrap";
 
-const Project = () => {
+const ProjectAllocationSearch = () => {
   return (
     <div>
       <Card>
@@ -23,33 +23,14 @@ const Project = () => {
             <Row>
               <h3 className="text-center p-4">Projects</h3>
             </Row>
-            <Row>
-              <Col>
-                <FormGroup>
-                  <Input id="exampleSelect" name="select" type="select">
-                    <option>Ongoing Projects</option>
-                    <option>Pending Projects</option>
-                    <option>Completed Projects</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-              <Col>
-                <div className="button-group">
-                  <Button className="btn" color="primary">
-                    Create new project
-                  </Button>
-                </div>
-              </Col>
-            </Row>
 
             <Table bordered hover>
               <thead>
                 <tr>
-                  <th>Sr No.</th>
+                  <th>Project id.</th>
                   <th>Project Name</th>
-                  <th>Start date</th>
-                  <th>End date</th>
-                  <th>Edit</th>
+                  <th>Created date</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -57,15 +38,13 @@ const Project = () => {
                   <th scope="row">1</th>
                   <td>HD Soft Mobile Application</td>
                   <td>15 Oct 2022</td>
-                  <td>30 Nov 2022</td>
-                  <th>Edit</th>
+                  <td>Allocated</td>
                 </tr>
                 <tr>
                   <th scope="row">2</th>
                   <td>Chrome Extension</td>
                   <td>10 Oct 2022</td>
-                  <td>30 Nov 2022</td>
-                  <th>Edit</th>
+                  <td>------</td>
                 </tr>
               </tbody>
             </Table>
@@ -76,4 +55,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default ProjectAllocationSearch;
