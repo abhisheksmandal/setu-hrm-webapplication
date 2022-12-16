@@ -23,6 +23,7 @@ const TaskAllocation = lazy(() => import("../views/ui/TaskAllocation"));
 const Employees = lazy(() => import("../views/ui/Employees"));
 const Leaves = lazy(() => import("../views/ui/Leaves"));
 const Reports = lazy(() => import("../views/ui/Reports"));
+const ProjectCreation = lazy(() => import("../views/ui/ProjectCreation"));
 
 /*****Routes******/
 
@@ -49,6 +50,7 @@ const ThemeRoutes = [
       { path: "/employees", exact: true, element: <Employees /> },
       { path: "/leaves", exact: true, element: <Leaves /> },
       { path: "/reports", exact: true, element: <Reports /> },
+      { path: "/projectcreation", exact: true, element: <ProjectCreation /> },
     ],
   },
 ];
