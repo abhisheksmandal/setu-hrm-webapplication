@@ -13,6 +13,8 @@ import {
   Table,
   Button,
   ButtonGroup,
+  Nav,
+  NavItem
 } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
 import Feeds from "../components/dashboard/Feeds";
@@ -23,18 +25,6 @@ import bg1 from "../assets/images/bg/bg1.jpg";
 import bg2 from "../assets/images/bg/bg2.jpg";
 import bg3 from "../assets/images/bg/bg3.jpg";
 import bg4 from "../assets/images/bg/bg4.jpg";
-
-
-import { Link, useLocation } from "react-router-dom";
-
-const navigation = [
-  {
-    title: "Dashboard",
-    href: "/project",
-    icon: "bi bi-speedometer2",
-  }]
-
-
 
 const BlogData = [
   {
@@ -72,6 +62,7 @@ const BlogData = [
 ];
 
 const Starter = () => {
+
   return (
     <div>
       {/* **Top Cards**
@@ -261,9 +252,7 @@ const Starter = () => {
                 </Table>
               </Col>
             </Row>
-            <div className="btnOwn p-2 sm" color="primary">
-              Click
-            </div>
+            
           </Container>
         </CardBody>
       </Card>
