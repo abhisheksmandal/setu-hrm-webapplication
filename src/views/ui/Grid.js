@@ -70,7 +70,7 @@ const Grid = () => {
               <Col
                 sm={{
                   offset: 1,
-                  order: 2,
+                  order: 2, 
                   size: 6,
                 }}
               >
