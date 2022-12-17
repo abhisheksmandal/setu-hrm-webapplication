@@ -29,7 +29,7 @@ const Header = () => {
   };
   return (
     <Navbar color="primary" dark expand="md">
-      {/* <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           <LogoWhite />
         </NavbarBrand>
@@ -40,8 +40,8 @@ const Header = () => {
         >
           <i className="bi bi-list"></i>
         </Button>
-      </div> */}
-      {/* <div className="hstack gap-2">
+      </div>
+      <div className="hstack gap-2">
         <Button
           color="primary"
           size="sm"
@@ -54,7 +54,7 @@ const Header = () => {
             <i className="bi bi-three-dots-vertical"></i>
           )}
         </Button>
-      </div> */}
+      </div>
 
       <Collapse navbar isOpen={isOpen}>
         {/* <Nav className="me-auto" navbar>

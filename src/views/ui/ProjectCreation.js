@@ -12,6 +12,8 @@ import {
   Input,
   FormText,
 } from "reactstrap";
+import { Link} from "react-router-dom";
+
 
 const ProjectCreation = () => {
   return (
@@ -118,11 +120,20 @@ const ProjectCreation = () => {
               </Col>
             </Row>
             <Row className="mt-3 mb-3">
-              <div className="button-group text-center">
-                <Button className="btn" color="primary">
-                  Create new project
-                </Button>
-              </div>
+              <Link
+                      to="/project"
+                      // className={
+                      //   location.pathname === "/projectcreation"
+                      //     ? "text-primary nav-link py-3"
+                      //     : "nav-link text-secondary py-3 primary"
+                      // }
+                    >
+                      <div className="button-group text-center">
+                        <Button className="btn" color="primary">
+                          Create new project
+                        </Button>
+                      </div>
+                    </Link>
             </Row>
           </Container>
         </CardBody>

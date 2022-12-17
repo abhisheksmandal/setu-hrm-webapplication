@@ -90,12 +90,10 @@ const Reports = () => {
             </Row>
             <Row className="mt-3">
              
-                <Col xs="6">
+                <Col className="text-center">
                   <Button className="btn text-center" color="primary">
                     Download PDF
                   </Button>
-                </Col>
-                <Col xs="6">
                   <Button className="btn text-center" color="primary">
                     Download Excel
                   </Button>

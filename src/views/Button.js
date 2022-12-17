@@ -31,4 +31,4 @@ let location = useLocation();
       </Link>
     </NavItem>
   ))}
-</Nav>;
+</Nav>
