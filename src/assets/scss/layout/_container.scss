@@ -52,3 +52,26 @@
 .projectsBody {
   height: 82.5vh;
 }
+
+.dropdownLink {
+  color: $gray-900;
+  text-decoration: none;
+}
+
+.userButton {
+  // border: 1px solid white ;
+  border-radius: 10px;
+  background-color: #a4c0f9;
+  // width: 45px;
+}
+
+.userName {
+font-size: 12px;
+white-space: nowrap;
+}
+
+.userDesignation {
+  text-transform: capitalize;
+  font-size: xx-small;
+  white-space: nowrap;
+}

@@ -12,6 +12,8 @@ import {
   DropdownItem,
   Dropdown,
   Button,
+  Row,
+  Col,
 } from "reactstrap";
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import user1 from "../assets/images/users/user1.jpg";
@@ -57,46 +59,39 @@ const Header = () => {
       </div>
 
       <Collapse navbar isOpen={isOpen}>
-        {/* <Nav className="me-auto" navbar>
-          <NavItem>
-            <Link to="/starter" className="nav-link">
-              Starter
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/about" className="nav-link">
-              About
-            </Link>
-          </NavItem>
-          <UncontrolledDropdown inNavbar nav>
-            <DropdownToggle caret nav>
-              DD Menu
-            </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
-        </Nav> */}
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle color="primary">
-            <img
-              src={user1}
-              alt="profile"
-              className="rounded-circle"
-              width="30"
-            ></img>
+        <Nav className="me-auto" navbar></Nav>
+        <Dropdown isOpen={dropdownOpen} toggle={toggle} className="userButton">
+          <DropdownToggle color="">
+            <Row>
+              {/* <div > */}
+              <Col className="px-3">
+                <img
+                  src={user1}
+                  alt="profile"
+                  className="rounded-circle m-0"
+                  width="30"
+                ></img>
+              </Col>
+              <Col className="px-3">
+                <div>
+                  <p className="userName m-0 fw-bold">User Name</p>
+                  <p className="userDesignation m-0">Designation</p>
+                </div>
+              </Col>
+              {/* </div> */}
+            </Row>
           </DropdownToggle>
           <DropdownMenu>
-            {/* <DropdownItem header>Info</DropdownItem>
-            <DropdownItem>My Account</DropdownItem>
-            <DropdownItem>Edit Profile</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>My Balance</DropdownItem> */}
-            <DropdownItem>View Profile</DropdownItem>
-            <DropdownItem>View Company Profile</DropdownItem>
+            <DropdownItem>
+              <Link to="/profileview" className="dropdownLink">
+                <div>Profile View</div>
+              </Link>
+            </DropdownItem>
+            <DropdownItem>
+              <Link to="/companyprofileview" className="dropdownLink">
+                <div>View Company Profile</div>
+              </Link>
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>
