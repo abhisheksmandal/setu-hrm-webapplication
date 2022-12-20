@@ -15,7 +15,7 @@ import {
   NavItem,
   Table,
 } from "reactstrap";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Project = () => {
   // let location = useLocation();
@@ -23,11 +23,12 @@ const Project = () => {
   return (
     <div>
       <Card>
+        <CardTitle tag="h3" className="border-bottom p-3 mb-0 text-center ">
+          {/* <i className="bi bi-bell me-2"> </i> */}
+          Projects
+        </CardTitle>
         <CardBody className="projectsBody">
           <Container>
-            <Row>
-              <h3 className="text-center p-4">Projects</h3>
-            </Row>
             <Row>
               <Col>
                 <FormGroup>
@@ -39,20 +40,20 @@ const Project = () => {
                 </FormGroup>
               </Col>
               <Col>
-                    <Link
-                      to="/projectcreation"
-                      // className={
-                      //   location.pathname === "/projectcreation"
-                      //     ? "text-primary nav-link py-3"
-                      //     : "nav-link text-secondary py-3 primary"
-                      // }
-                    >
-                      <div className="button-group">
-                        <Button className="btn" color="primary">
-                          Create new project
-                        </Button>
-                      </div>
-                    </Link>
+                <Link
+                  to="/projectcreation"
+                  // className={
+                  //   location.pathname === "/projectcreation"
+                  //     ? "text-primary nav-link py-3"
+                  //     : "nav-link text-secondary py-3 primary"
+                  // }
+                >
+                  <div className="button-group">
+                    <Button className="btn" color="primary">
+                      Create new project
+                    </Button>
+                  </div>
+                </Link>
               </Col>
             </Row>
 
