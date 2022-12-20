@@ -1,30 +1,21 @@
+import React from 'react'
 import {
-  Col,
-  Row,
-  Container,
-  Card,
-  CardBody,
-  CardTitle,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Table,
-  Button,
-  ButtonGroup,
-  Badge,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  tabs,
-  pills,
-} from "reactstrap";
+    Card,
+    Row,
+    Col,
+    CardTitle,
+    Container,
+    CardBody,
+    Button,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    FormText,
+    Table,
+  } from "reactstrap";
 
-const EmployeeRegistration = () => {
+export default function EmployeeSearch() {
   return (
     <div><Card>
     <CardBody className="">
@@ -93,8 +84,5 @@ const EmployeeRegistration = () => {
       </Container>
     </CardBody>
   </Card></div>
-    
-  );
-};
-
-export default EmployeeRegistration;
+  )
+}
