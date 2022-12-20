@@ -153,7 +153,7 @@ export default function TaskAllocationView() {
           </Row>
           <Row className="mt-3">
             <Col className="text-center">
-              <Button color="primary" href="task.js">
+              <Button color="primary" href="">
                 Submit
               </Button>
             </Col>
