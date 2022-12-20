@@ -11,14 +11,19 @@ import {
   Label,
   Input,
   FormText,
+  Nav,
+  NavItem,
   Table,
 } from "reactstrap";
+import { Link} from "react-router-dom";
 
 const Project = () => {
+  // let location = useLocation();
+
   return (
     <div>
       <Card>
-        <CardBody className="">
+        <CardBody className="projectsBody">
           <Container>
             <Row>
               <h3 className="text-center p-4">Projects</h3>
@@ -34,11 +39,20 @@ const Project = () => {
                 </FormGroup>
               </Col>
               <Col>
-                <div className="button-group">
-                  <Button className="btn" color="primary">
-                    Create new project
-                  </Button>
-                </div>
+                    <Link
+                      to="/projectcreation"
+                      // className={
+                      //   location.pathname === "/projectcreation"
+                      //     ? "text-primary nav-link py-3"
+                      //     : "nav-link text-secondary py-3 primary"
+                      // }
+                    >
+                      <div className="button-group">
+                        <Button className="btn" color="primary">
+                          Create new project
+                        </Button>
+                      </div>
+                    </Link>
               </Col>
             </Row>
 

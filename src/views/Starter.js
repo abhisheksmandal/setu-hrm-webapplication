@@ -13,6 +13,8 @@ import {
   Table,
   Button,
   ButtonGroup,
+  Nav,
+  NavItem
 } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
 import Feeds from "../components/dashboard/Feeds";
@@ -60,6 +62,7 @@ const BlogData = [
 ];
 
 const Starter = () => {
+
   return (
     <div>
       {/* **Top Cards**
@@ -249,6 +252,7 @@ const Starter = () => {
                 </Table>
               </Col>
             </Row>
+            
           </Container>
         </CardBody>
       </Card>

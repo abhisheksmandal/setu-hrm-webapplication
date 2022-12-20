@@ -401,6 +401,7 @@ const Reports = () => {
                 </Form>
               </Col>
             </Row>
+
             <Row>
               <Col>
                 <div
@@ -416,6 +417,19 @@ const Reports = () => {
                   </Button>
                 </div>
               </Col>
+
+            <Row className="mt-3">
+             
+                <Col className="text-center">
+                  <Button className="btn text-center" color="primary">
+                    Download PDF
+                  </Button>
+                  <Button className="btn text-center" color="primary">
+                    Download Excel
+                  </Button>
+                </Col>
+              
+
             </Row>
           </Container>
         </CardBody>
