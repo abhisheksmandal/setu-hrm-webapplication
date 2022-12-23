@@ -14,7 +14,7 @@ import {
   Button,
   ButtonGroup,
   Nav,
-  NavItem
+  NavItem,
 } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
 import Feeds from "../components/dashboard/Feeds";
@@ -25,6 +25,7 @@ import bg1 from "../assets/images/bg/bg1.jpg";
 import bg2 from "../assets/images/bg/bg2.jpg";
 import bg3 from "../assets/images/bg/bg3.jpg";
 import bg4 from "../assets/images/bg/bg4.jpg";
+import Register from "./ui/Register";
 
 const BlogData = [
   {
@@ -62,7 +63,6 @@ const BlogData = [
 ];
 
 const Starter = () => {
-
   return (
     <div>
       {/* **Top Cards**
@@ -252,10 +252,10 @@ const Starter = () => {
                 </Table>
               </Col>
             </Row>
-            
           </Container>
         </CardBody>
       </Card>
+      <Register />
     </div>
   );
 };
