@@ -30,7 +30,7 @@ const navigation = [
   },
   {
     title: "Employees",
-    href: "/employeeregistration",
+    href: "/employees",
     icon: "bi bi-bell",
   },
   {

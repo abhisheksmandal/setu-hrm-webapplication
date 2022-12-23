@@ -26,6 +26,7 @@ const Reports = lazy(() => import("../views/ui/Reports"));
 const ProjectCreation = lazy(() => import("../views/ui/ProjectCreation"));
 const ProfileView = lazy(() => import("../views/ui/ProfileView"));
 const CompanyProfileView = lazy(() => import("../views/ui/CompanyProfileView"));
+const EmployeeDetails = lazy(() => import("../views/ui/EmployeeDetails"));
 
 /*****Routes******/
 
@@ -55,6 +56,7 @@ const ThemeRoutes = [
       { path: "/projectcreation", exact: true, element: <ProjectCreation /> },
       { path: "/profileview", exact: true, element: <ProfileView /> },
       { path: "/companyprofileview", exact: true, element: <CompanyProfileView /> },
+      { path: "/employeedetails", exact: true, element: <EmployeeDetails /> },
     ],
   },
 ];
