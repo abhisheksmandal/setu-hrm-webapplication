@@ -19,7 +19,6 @@ const Reports = () => {
     <div>
       <div>
         <h3 className="text-center p-4">Reports</h3>
-
         <Card>
           <CardBody className="">
             <Container>
