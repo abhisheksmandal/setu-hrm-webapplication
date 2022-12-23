@@ -20,7 +20,7 @@ const navigation = [
   },
   {
     title: "Project Allocation",
-    href: "/projectallocation",
+    href: "/projectallocationsearch",
     icon: "bi bi-bell",
   },
   {

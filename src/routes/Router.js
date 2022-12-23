@@ -19,6 +19,7 @@ const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
 const Project = lazy(() => import("../views/ui/Project"));
 const EmployeeRegistration = lazy(() => import("../views/ui/EmployeeRegistration"));
 const ProjectAllocation = lazy(() => import("../views/ui/ProjectAllocation"));
+const ProjectAllocationSearch = lazy(() => import("../views/ui/ProjectAllocationSearch"));
 const TaskAllocation = lazy(() => import("../views/ui/TaskAllocation"));
 const Employees = lazy(() => import("../views/ui/Employees"));
 const Leaves = lazy(() => import("../views/ui/Leaves"));
@@ -49,6 +50,7 @@ const ThemeRoutes = [
       { path: "/project", exact: true, element: <Project /> },
       { path: "/employeeregistration", exact: true, element: <EmployeeRegistration /> },
       { path: "/projectallocation", exact: true, element: <ProjectAllocation /> },
+      { path: "/projectallocationsearch", exact: true, element: <ProjectAllocationSearch /> },
       { path: "/taskallocation", exact: true, element: <TaskAllocation /> },
       { path: "/employees", exact: true, element: <Employees /> },
       { path: "/leaves", exact: true, element: <Leaves /> },
