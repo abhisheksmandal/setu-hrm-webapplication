@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import user1 from "../assets/images/users/user1.jpg";
+import Logo from "./imgs/HDSOFTlogo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -33,7 +34,8 @@ const Header = () => {
     <Navbar color="primary" dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
-          <LogoWhite />
+          {/* <LogoWhite /> */}
+          <img src={Logo} alt="" srcset="" width={50} />
         </NavbarBrand>
         <Button
           color="primary"
@@ -58,6 +60,7 @@ const Header = () => {
         </Button>
       </div>
 
+      <img src={Logo} alt="" srcset="" width={50} className="m-4 mt-0 mb-0" />
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar></Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="userButton">
