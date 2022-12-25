@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
-  {
+  { 
     title: "Dashboard",
     href: "/starter",
     icon: "bi bi-speedometer2",
@@ -86,7 +86,7 @@ const navigation = [
 ];
 
 const Sidebar = () => {
-  const showMobilemenu = () => {
+  const showMobilemenu = () => { 
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
   let location = useLocation();
