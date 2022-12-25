@@ -56,6 +56,7 @@ const ProjectView = () => {
                   <FormGroup>
                     <Label for="exampleEmail">Start Date*:</Label>
                     <Input
+                    type="date"
                       id="exampleEmail"
                       name="ProjectName"
                       disabled={TRUE}
@@ -68,7 +69,7 @@ const ProjectView = () => {
                   {" "}
                   <FormGroup>
                     <Label for="exampleEmail">End Date*:</Label>
-                    <Input
+                    <Input type="date"
                       id="exampleEmail"
                       name="ProjectType"
                       disabled={TRUE}
