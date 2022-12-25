@@ -129,7 +129,7 @@ const ProjectCreation = () => {
                 // }
               >
                 <div className="button-group text-center">
-                  <Button className="btn" color="primary">
+                  <Button className="btn" color="buttonColor">
                     Create new project
                   </Button>
                 </div>

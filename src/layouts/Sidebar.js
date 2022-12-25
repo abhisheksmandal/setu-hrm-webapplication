@@ -3,7 +3,7 @@ import { Button, Nav, NavItem } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
-  { 
+  {
     title: "Dashboard",
     href: "/starter",
     // icon: "bi bi-speedometer2",
@@ -86,13 +86,13 @@ const navigation = [
 ];
 
 const Sidebar = () => {
-  const showMobilemenu = () => { 
+  const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
   let location = useLocation();
 
   return (
-    <div className="p-3">
+    <div className="text-center sideBar">
       <div className="d-flex align-items-center">
         {/* <Logo /> */}
         <Button
@@ -102,7 +102,7 @@ const Sidebar = () => {
           onClick={() => showMobilemenu()}
         ></Button>
       </div>
-      <div className="">
+      <div>
         <Nav vertical className="sidebarNav">
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
@@ -110,8 +110,8 @@ const Sidebar = () => {
                 to={navi.href}
                 className={
                   location.pathname === navi.href
-                    ? "text-primary nav-link py-3"
-                    : "nav-link text-secondary py-3"
+                    ? "text-white bg-visitedModule nav-link py-3"
+                    : "nav-link text-black py-3"
                 }
               >
                 <i className={navi.icon}></i>
@@ -119,7 +119,7 @@ const Sidebar = () => {
               </Link>
             </NavItem>
           ))}
-          <Button
+          {/* <Button
             color="danger"
             tag="a"
             target="_blank"
@@ -127,7 +127,7 @@ const Sidebar = () => {
             href="https://www.wrappixel.com/templates/xtreme-react-redux-admin/?ref=33"
           >
             Upgrade To Pro
-          </Button>
+          </Button> */}
         </Nav>
       </div>
     </div>

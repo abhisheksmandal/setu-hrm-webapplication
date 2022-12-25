@@ -111,8 +111,7 @@ const EmployeeSearch = () => {
                 <Row>
                   <Col sm="12">
                     <div>
-                      <Container className="bg-secondary bg-gradient text-white rounded">
-                        <h5 className="p-2 text-center">Personal Details</h5>
+                      <Container className="bg-formGray pt-1 text-black rounded">
                         <Form>
                           <Row className="mt-3">
                             <Col xs="6" sm="4">
@@ -276,8 +275,8 @@ const EmployeeSearch = () => {
                                   name="Designation"
                                   type="select"
                                 >
-                                  <option></option>
-                                  <option></option>
+                                  <option>Manager</option>
+                                  <option>Tester</option>
                                 </Input>
                               </FormGroup>
                             </Col>
@@ -324,7 +323,7 @@ const EmployeeSearch = () => {
                             Save & Proceed
                           </Button>
                         </Col>
-                        <Col sm="4">
+                        <Col className="text-end">
                           <FormGroup>
                             <Button
                               color="primary"
@@ -346,9 +345,7 @@ const EmployeeSearch = () => {
                 <Row>
                   <Col sm="12">
                     <div>
-                      <h3>SalaryDetails</h3>
-                      <Container className="bg-secondary bg-gradient text-white rounded">
-                        <h5 className="p-2 text-center">Salary Details</h5>
+                      <Container className="bg-formGray pt-1 text-black rounded">
                         <Form>
                           <Row className="mt-3">
                             <Col xs="6" sm="4">
@@ -458,8 +455,7 @@ const EmployeeSearch = () => {
                 <Row>
                   <Col sm="12">
                     <div>
-                      <Container className="bg-secondary bg-gradient text-white rounded">
-                        <h5 className="p-2 text-center">Bank Details</h5>
+                      <Container className="bg-formGray pt-1 text-black rounded">
                         <Form>
                           <Row className="mt-3">
                             <Col xs="6">
@@ -556,8 +552,7 @@ const EmployeeSearch = () => {
                 <Row>
                   <Col sm="12">
                     <div>
-                      <Container className="bg-secondary bg-gradient text-white rounded">
-                        <h5 className="p-2 text-center">Nominee Details</h5>
+                      <Container className="bg-formGray pt-1 text-black rounded">
                         <Form>
                           <Row className="mt-3">
                             <Col xs="6" sm="4">
@@ -687,14 +682,20 @@ const EmployeeSearch = () => {
                 <Row>
                   <Col sm="12">
                     <div>
-                      <Container className="bg-secondary bg-gradient text-white rounded">
-                        <h5 className="p-2 text-center">Upload Files</h5>
+                      <Container className="bg-formGray pt-1 text-black rounded">
                         <Form>
                           <Row className="mt-3">
                             <Col xs="6">
                               <FormGroup>
-                                <Label for="DocumentName">Document Name:</Label>
-                                <Input id="document" name="Dname" type="text" />
+                                <Label for="Designation">Document Name:</Label>
+                                <Input
+                                  id="designation"
+                                  name="Designation"
+                                  type="select"
+                                >
+                                  <option>Birth Certificate</option>
+                                  <option>HSSC Marksheet</option>
+                                </Input>
                               </FormGroup>
                             </Col>
                             <Col xs="6">
@@ -706,7 +707,7 @@ const EmployeeSearch = () => {
                           </Row>
                         </Form>
                         <Table bordered hover className="bg-light">
-                          <thead className="bg-success">
+                          <thead className="bg-danger">
                             <tr>
                               <th>Sr no.</th>
                               <th>Document Name</th>

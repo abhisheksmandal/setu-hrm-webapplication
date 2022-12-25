@@ -32,7 +32,7 @@ const Project = () => {
             <Row>
               <Col>
                 <FormGroup>
-                  <Input id="exampleSelect" name="select" type="select">
+                  <Input id="exampleSelect" name="select" type="select" className="bg-themeblue">
                     <option>Ongoing Projects</option>
                     <option>Pending Projects</option>
                     <option>Completed Projects</option>
@@ -48,8 +48,8 @@ const Project = () => {
                   //     : "nav-link text-secondary py-3 primary"
                   // }
                 >
-                  <div className="button-group">
-                    <Button className="btn" color="primary">
+                  <div className="button-group text-end">
+                    <Button className="btn" color="buttonColor">
                       Create new project
                     </Button>
                   </div>
@@ -59,7 +59,7 @@ const Project = () => {
 
             <Table bordered hover>
               <thead>
-                <tr>
+                <tr className="bg-danger">
                   <th>Sr No.</th>
                   <th>Project Name</th>
                   <th>Start date</th>

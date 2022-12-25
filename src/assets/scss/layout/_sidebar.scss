@@ -1,10 +1,19 @@
 .sidebarArea {
   flex-shrink: 0;
   width: $sidebarWidth;
-  background-color: $sidebarColor;
+  background-color: $themedarkblue;
+  padding: 0;
+  .sidenav-bg {
+    // border-top: 1px solid $gray-800;
+    margin: 1px;
+    background-color: $themeblue;
+    // border-radius: $border-radius;
+  }
   .sidenav-bg:hover {
     background-color: $gray-100;
-    border-radius: $border-radius;
+    font-weight: bold;
+    // border-radius: $border-radius;
+    // margin: 10px;
   }
 }
 
@@ -20,4 +29,9 @@
       margin-left: 0px;
     }
   }
+}
+
+.themeBlue {
+  margin: 0%;
+  background-color: $themeblue;
 }

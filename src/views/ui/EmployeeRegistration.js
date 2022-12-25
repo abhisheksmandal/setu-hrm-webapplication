@@ -53,9 +53,14 @@ const EmployeeRegistration = () => {
               </Col>
               <Col>
                 <Link to="/employeedetails">
-                  <div className="button-group">
+                  {/* <div className="button-group">
                     <Button className="btn" color="primary">
                       Add Employee
+                    </Button>
+                  </div> */}
+                  <div className="button-group text-end">
+                    <Button className="btn" color="primary">
+                      Create new project
                     </Button>
                   </div>
                 </Link>

@@ -1,3 +1,7 @@
+// * {
+//   font-size: small;
+// }
+
 .pageWrapper {
   min-height: 100vh;
 }
@@ -66,8 +70,8 @@
 }
 
 .userName {
-font-size: 12px;
-white-space: nowrap;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 .userDesignation {
@@ -76,6 +80,6 @@ white-space: nowrap;
   white-space: nowrap;
 }
 
-.navlinkPointer{
+.navlinkPointer {
   cursor: pointer;
 }

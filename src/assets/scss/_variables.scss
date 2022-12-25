@@ -15,7 +15,11 @@ $dark: #343a40;
 $light: #eaf2fb;
 $secondary: #35363b;
 $white: #ffffff;
+$buttonColor: #1f1f5e;
 $notificationRow: #7cacff;
+$themeblue: #7cacff;
+$themedarkblue: #1657d9;
+$visitedModule: #4c6a9e;
 
 $theme-colors: (
   "primary": $primary,
@@ -33,6 +37,10 @@ $theme-colors: (
   "light-danger": #f8dddd,
   "buttonColor": #1f1f5e,
   "notificationRow": #7cacff,
+  "themeblue": #7cacff,
+  "themedarkblue": #1657d9,
+  "visitedModule": #4c6a9e,
+  "formGray": #D9D9D9,
 );
 // scss-docs-start gray-color-variables
 $white: #fff !default;

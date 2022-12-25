@@ -31,11 +31,12 @@ const Header = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
   return (
-    <Navbar color="primary" dark expand="md">
+    <Navbar color="themeblue" dark expand="md">
+      <img src={Logo} alt="" srcset="" width={50} />
+      {/* <img src={Logo} alt="" srcset="" width={50} /> */}
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           {/* <LogoWhite /> */}
-          <img src={Logo} alt="" srcset="" width={50} />
         </NavbarBrand>
         <Button
           color="primary"
@@ -54,14 +55,14 @@ const Header = () => {
         >
           {isOpen ? (
             <i className="bi bi-x"></i>
-          ) : (
-            <i className="bi bi-three-dots-vertical"></i>
-          )}
+            ) : (
+              <i className="bi bi-three-dots-vertical"></i>
+              )}
         </Button>
       </div>
 
-      <img src={Logo} alt="" srcset="" width={50} className="m-4 mt-0 mb-0" />
       <Collapse navbar isOpen={isOpen}>
+        {/* <img src={Logo} alt="" srcset="" width={50} className="m-4 mt-0 mb-0" /> */}
         <Nav className="me-auto" navbar></Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="userButton">
           <DropdownToggle color="">
