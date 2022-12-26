@@ -100,9 +100,11 @@ const Header = () => {
               </Link>
             </DropdownItem>
             <DropdownItem>
-              <Link to="/companyprofileview" className="dropdownLink">
-                <div className="text-danger">Logout</div>
-              </Link>
+              <Button className="btn" color="danger" size="sm" block>
+                <Link to="loginregister" className="text-white text-decoration-none">
+                  Logout
+                </Link>
+              </Button>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

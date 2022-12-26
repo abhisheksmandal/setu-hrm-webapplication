@@ -17,7 +17,7 @@ LoginCredentials.mailID = "2004016.stu@dmscollege.ac.in";
 
 // You can store them in your env variables and
 // access them, it will work fine
-LoginCredentials.password = "AbhiStar22092002";
+LoginCredentials.password = "";
 LoginCredentials.use = true;
 
 // Pass in the mail ID you need to verify
