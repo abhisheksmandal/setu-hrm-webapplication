@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import user1 from "../assets/images/users/user1.jpg";
+import Logo from "./imgs/HDSOFTlogo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -30,10 +31,15 @@ const Header = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
   return (
-    <Navbar color="primary" dark expand="md">
+    <Navbar color="themeblue" dark expand="md">
+      <a href="/">
+        <img src={Logo} alt="" srcset="" width={50} />
+      </a>
+
+      {/* <img src={Logo} alt="" srcset="" width={50} /> */}
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
-          <LogoWhite />
+          {/* <LogoWhite /> */}
         </NavbarBrand>
         <Button
           color="primary"
@@ -59,6 +65,7 @@ const Header = () => {
       </div>
 
       <Collapse navbar isOpen={isOpen}>
+        {/* <img src={Logo} alt="" srcset="" width={50} className="m-4 mt-0 mb-0" /> */}
         <Nav className="me-auto" navbar></Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="userButton">
           <DropdownToggle color="">
@@ -81,7 +88,7 @@ const Header = () => {
               {/* </div> */}
             </Row>
           </DropdownToggle>
-          <DropdownMenu>
+          <DropdownMenu className="text-center">
             <DropdownItem>
               <Link to="/profileview" className="dropdownLink">
                 <div>Profile View</div>
@@ -91,6 +98,13 @@ const Header = () => {
               <Link to="/companyprofileview" className="dropdownLink">
                 <div>View Company Profile</div>
               </Link>
+            </DropdownItem>
+            <DropdownItem>
+              <Button className="btn" color="danger" size="sm" block>
+                <Link to="loginregister" className="text-white text-decoration-none">
+                  Logout
+                </Link>
+              </Button>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

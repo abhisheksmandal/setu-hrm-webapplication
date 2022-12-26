@@ -14,7 +14,7 @@ import {
   Button,
   ButtonGroup,
   Nav,
-  NavItem
+  NavItem,
 } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
 import Feeds from "../components/dashboard/Feeds";
@@ -62,7 +62,6 @@ const BlogData = [
 ];
 
 const Starter = () => {
-
   return (
     <div>
       {/* **Top Cards**
@@ -177,8 +176,10 @@ const Starter = () => {
             <Row>
               <Col sm="6" lg="6">
                 <FormGroup>
-                  <Label for="exampleSelect">Projects</Label>
-                  <Input id="exampleSelect" name="select" type="select">
+                  <Label for="exampleSelect" className="pe-auto">
+                    Projects
+                  </Label>
+                  <Input id="exampleSelect" name="select" type="select" >
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -252,7 +253,6 @@ const Starter = () => {
                 </Table>
               </Col>
             </Row>
-            
           </Container>
         </CardBody>
       </Card>

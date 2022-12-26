@@ -18,42 +18,55 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
+  TabContent,
+  TabPane,
   NavItem,
   NavLink,
-  tabs,
   pills,
 } from "reactstrap";
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 const EmployeeRegistration = () => {
   return (
-    <div><Card>
-    <CardBody className="">
-      <Container>
-        <Row>
-          <h3 className="text-center p-4">Employee Registration</h3>
-        </Row>
-        <Row>
-          <Col>
-            <Form>
-              <FormGroup>
-                <Input
-                  id="search"
-                  name="search"
-                  placeholder="Search Employee"
-                  type="text"
-                />
-              </FormGroup>
-            </Form>
-          </Col>
-          <Col>
-            <div className="button-group">
-              <Button className="btn" color="primary" >
-                Add Employee
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      
+    <div>
+      <Card>
+        <CardBody className="">
+          <Container>
+            <Row>
+              <h3 className="text-center p-4">Employee Registration</h3>
+            </Row>
+            <Row>
+              <Col>
+                <Form>
+                  <FormGroup>
+                    <Input
+                      id="search"
+                      name="search"
+                      placeholder="Search Employee"
+                      type="text"
+                    />
+                  </FormGroup>
+                </Form>
+              </Col>
+              <Col>
+                <Link to="/employeedetails">
+                  {/* <div className="button-group">
+                    <Button className="btn" color="primary">
+                      Add Employee
+                    </Button>
+                  </div> */}
+                  <div className="button-group text-end">
+                    <Button className="btn" color="primary">
+                      Create new project
+                    </Button>
+                  </div>
+                </Link>
+              </Col>
+            </Row>
+
             <Table bordered hover>
               <thead>
                 <tr>
@@ -64,7 +77,7 @@ const EmployeeRegistration = () => {
                   <th>Age</th>
                 </tr>
               </thead>
-              
+
               <tbody>
                 <tr>
                   <th scope="row">1</th>
@@ -89,11 +102,10 @@ const EmployeeRegistration = () => {
                 </tr>
               </tbody>
             </Table>
-          
-      </Container>
-    </CardBody>
-  </Card></div>
-    
+          </Container>
+        </CardBody>
+      </Card>
+    </div>
   );
 };
 

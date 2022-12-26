@@ -46,7 +46,7 @@ const ProjectCreationUpdate = () => {
                 <div className="">
                   <FormGroup>
                     <Label for="exampleEmail">Start Date*:</Label>
-                    <Input id="exampleEmail" name="ProjectName" />
+                    <Input type="date" id="exampleEmail" name="ProjectName" />
                   </FormGroup>
                 </div>
               </Col>
@@ -55,7 +55,7 @@ const ProjectCreationUpdate = () => {
                   {" "}
                   <FormGroup>
                     <Label for="exampleEmail">End Date*:</Label>
-                    <Input id="exampleEmail" name="ProjectType" />
+                    <Input type="date" id="exampleEmail" name="ProjectType" />
                   </FormGroup>
                 </div>
               </Col>

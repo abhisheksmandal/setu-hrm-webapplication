@@ -11,10 +11,10 @@ import {
   Label,
   Input,
   FormText,
-  Table,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
-const ProfileView = () => {
+const ProjectCreation = () => {
   return (
     <div>
       <Card>
@@ -38,7 +38,6 @@ const ProfileView = () => {
                         name="name"
                         placeholder="Rocky"
                         type="text"
-                        disabled={true}
                       />
                     </FormGroup>
                   </Form>
@@ -182,4 +181,4 @@ const ProfileView = () => {
   );
 };
 
-export default ProfileView;
+export default ProjectCreation;

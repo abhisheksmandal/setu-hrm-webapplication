@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
+const LoginRegister = lazy(() => import("../LoginRegister"));
+const Register = lazy(() => import("../views/ui/Register"));
 
 /***** Pages ****/
 
@@ -19,6 +21,7 @@ const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
 const Project = lazy(() => import("../views/ui/Project"));
 const EmployeeRegistration = lazy(() => import("../views/ui/EmployeeRegistration"));
 const ProjectAllocation = lazy(() => import("../views/ui/ProjectAllocation"));
+const ProjectAllocationSearch = lazy(() => import("../views/ui/ProjectAllocationSearch"));
 const TaskAllocation = lazy(() => import("../views/ui/TaskAllocation"));
 const Employees = lazy(() => import("../views/ui/Employees"));
 const Leaves = lazy(() => import("../views/ui/Leaves"));
@@ -26,6 +29,7 @@ const Reports = lazy(() => import("../views/ui/Reports"));
 const ProjectCreation = lazy(() => import("../views/ui/ProjectCreation"));
 const ProfileView = lazy(() => import("../views/ui/ProfileView"));
 const CompanyProfileView = lazy(() => import("../views/ui/CompanyProfileView"));
+const EmployeeDetails = lazy(() => import("../views/ui/EmployeeDetails"));
 
 /*****Routes******/
 
@@ -48,6 +52,7 @@ const ThemeRoutes = [
       { path: "/project", exact: true, element: <Project /> },
       { path: "/employeeregistration", exact: true, element: <EmployeeRegistration /> },
       { path: "/projectallocation", exact: true, element: <ProjectAllocation /> },
+      { path: "/projectallocationsearch", exact: true, element: <ProjectAllocationSearch /> },
       { path: "/taskallocation", exact: true, element: <TaskAllocation /> },
       { path: "/employees", exact: true, element: <Employees /> },
       { path: "/leaves", exact: true, element: <Leaves /> },
@@ -55,7 +60,17 @@ const ThemeRoutes = [
       { path: "/projectcreation", exact: true, element: <ProjectCreation /> },
       { path: "/profileview", exact: true, element: <ProfileView /> },
       { path: "/companyprofileview", exact: true, element: <CompanyProfileView /> },
+      { path: "/employeedetails", exact: true, element: <EmployeeDetails /> },
     ],
+    
+  },
+  {
+    path: "/loginregister",
+    element: <LoginRegister />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ];
 
