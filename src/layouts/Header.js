@@ -99,6 +99,11 @@ const Header = () => {
                 <div>View Company Profile</div>
               </Link>
             </DropdownItem>
+            <DropdownItem>
+              <Link to="/companyprofileview" className="dropdownLink">
+                <div className="text-danger">Logout</div>
+              </Link>
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>

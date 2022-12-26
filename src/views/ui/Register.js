@@ -26,6 +26,8 @@ function otpBlock() {
 }
 
 const Register = () => {
+  const initialValues = { firstname: "", lastname: ""}
+  
   return (
     <div>
       <Card

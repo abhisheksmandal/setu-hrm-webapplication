@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -12,6 +12,15 @@ import { Card, Row, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 function App() {
+  const initialValues = { email: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, email: value });
+    console.log(formValues);
+  };
+
   return (
     <MDBContainer fluid className="p-3 my-5 h-custom">
       <MDBRow>
@@ -51,6 +60,8 @@ function App() {
             id="formControlLg"
             type="email"
             size="lg"
+            value={formValues.email}
+            onChange={handleChange}
           />
           <label>Password:</label>
           <MDBInput
@@ -59,6 +70,8 @@ function App() {
             id="formControlLg"
             type="password"
             size="lg"
+            value={formValues.password}
+            onChange={handleChange}
           />
 
           <div className="d-flex justify-content-between mb-4">

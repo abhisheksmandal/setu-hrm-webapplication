@@ -30,7 +30,7 @@ const TaskAllocation = () => {
               <Row className="mt-3">
                 <Col xs="6">
                   <FormGroup>
-                    <Label for="projname">Project</Label>
+                    <Label for="projname">Project:*</Label>
                     <Input id="proj" name="proj" type="select">
                       <option>Project 1</option>
                       <option>Project 2</option>
@@ -44,25 +44,21 @@ const TaskAllocation = () => {
               <Row className="mt-3">
                 <Col xs="6" sm="4">
                   <FormGroup>
-                    <Label for="designation">Designation</Label>
+                    <Label for="designation">Designation:*</Label>
                     <Input id="desi" name="desi" type="select">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>Manager</option>
+                      <option>Tester</option>
                     </Input>
                   </FormGroup>
                 </Col>
+                <Col xs="6" sm="4"></Col>
                 <Col sm="4">
                   <FormGroup>
-                    <Label for="employee">Employee</Label>
+                    <Label for="employee">Employee:*</Label>
                     <Input id="emp" name="employee" type="select">
-                      <option>Person 1</option>
-                      <option>Person 2</option>
-                      <option>Person 3</option>
-                      <option>Person 4</option>
-                      <option>Person 5</option>
+                      <option>Tony Stark</option>
+                      <option>Steve Rogers</option>
+                      <option>Bruce Banner</option>
                     </Input>
                   </FormGroup>
                 </Col>
@@ -70,27 +66,26 @@ const TaskAllocation = () => {
 
               <Row className="mt-3">
                 <FormGroup>
-                  <Label for="descText">Description</Label>
-                  <Input id="description" name="desc" type="textarea" />
+                  <Label for="descText">Description:*</Label>
+                  <Input id="description" name="desc" type="textarea" placeholder="Enter your project description"/>
                 </FormGroup>
               </Row>
 
               <Row className="mt-3">
                 <Col xs="6" sm="4">
                   <FormGroup>
-                    <Label for="prio">Priority</Label>
+                    <Label for="prio">Priority:*</Label>
                     <Input id="priority" name="prio" type="select">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>Low</option>
+                      <option>Medium</option>
+                      <option>High</option>
                     </Input>
                   </FormGroup>
                 </Col>
+                <Col sm="4"></Col>
                 <Col sm="4">
                   <FormGroup>
-                    <Label for="estDays">Estimated Days</Label>
+                    <Label for="estDays">Estimated Days:*</Label>
                     <Input
                       id="estimatedDays"
                       name="days"
@@ -122,7 +117,7 @@ const TaskAllocation = () => {
                   </FormGroup>
                 </Col>
                 <Col sm="4" className="d-flex align-items-center mt-3">
-                  <Button color="info" >Upload</Button>
+                  <Button color="info">Upload</Button>
                 </Col>
               </Row>
 

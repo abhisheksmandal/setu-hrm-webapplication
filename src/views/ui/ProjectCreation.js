@@ -73,7 +73,7 @@ const ProjectCreation = () => {
                 <div className="">
                   <FormGroup>
                     <Label for="exampleEmail">Budget*:</Label>
-                    <Input id="exampleEmail" name="ProjectName" />
+                    <Input id="exampleEmail" name="ProjectName" type="number" />
                   </FormGroup>
                 </div>
               </Col>
