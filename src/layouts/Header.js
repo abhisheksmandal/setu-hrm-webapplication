@@ -32,7 +32,10 @@ const Header = () => {
   };
   return (
     <Navbar color="themeblue" dark expand="md">
-      <img src={Logo} alt="" srcset="" width={50} />
+      <a href="/">
+        <img src={Logo} alt="" srcset="" width={50} />
+      </a>
+
       {/* <img src={Logo} alt="" srcset="" width={50} /> */}
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
@@ -55,9 +58,9 @@ const Header = () => {
         >
           {isOpen ? (
             <i className="bi bi-x"></i>
-            ) : (
-              <i className="bi bi-three-dots-vertical"></i>
-              )}
+          ) : (
+            <i className="bi bi-three-dots-vertical"></i>
+          )}
         </Button>
       </div>
 
@@ -85,7 +88,7 @@ const Header = () => {
               {/* </div> */}
             </Row>
           </DropdownToggle>
-          <DropdownMenu>
+          <DropdownMenu className="text-center">
             <DropdownItem>
               <Link to="/profileview" className="dropdownLink">
                 <div>Profile View</div>

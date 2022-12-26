@@ -119,15 +119,9 @@ const Sidebar = () => {
               </Link>
             </NavItem>
           ))}
-          {/* <Button
-            color="danger"
-            tag="a"
-            target="_blank"
-            className="mt-3"
-            href="https://www.wrappixel.com/templates/xtreme-react-redux-admin/?ref=33"
-          >
-            Upgrade To Pro
-          </Button> */}
+          <Button color="danger" tag="a" target="_blank" className="mt-3">
+            <Link to="loginregister">Login</Link>
+          </Button>
         </Nav>
       </div>
     </div>

@@ -13,6 +13,17 @@ import {
   FormText,
   Table,
 } from "reactstrap";
+import { Link } from "react-router-dom";
+
+function otpBlock() {
+  console.log("clicked");
+  var x = document.getElementById("otpBlock");
+  if (x.style.display === "none") {
+    x.style.display = "flex";
+  } else {
+    x.style.display = "none";
+  }
+}
 
 const Register = () => {
   return (
@@ -24,7 +35,7 @@ const Register = () => {
           alignItems: "right",
         }}
       >
-        <CardBody className="">
+        <CardBody>
           <Container>
             <h3
               style={{
@@ -51,7 +62,7 @@ const Register = () => {
                       <Input
                         id="fname"
                         name="fname"
-                        placeholder="Rocky"
+                        placeholder="Enter your first name"
                         type="text"
                       />
                     </FormGroup>
@@ -66,7 +77,7 @@ const Register = () => {
                       <Input
                         id="lname"
                         name="lname"
-                        placeholder="Rocky"
+                        placeholder="Enter your last name"
                         type="text"
                       />
                     </FormGroup>
@@ -89,7 +100,7 @@ const Register = () => {
                     <Input
                       id="exampleEmail"
                       name="email"
-                      placeholder="with a placeholder"
+                      placeholder="Enter your company name"
                       type="email"
                     />
                   </FormGroup>
@@ -99,8 +110,8 @@ const Register = () => {
                     <Input
                       id="exampleEmail"
                       name="email"
-                      placeholder="with a placeholder"
-                      type="email"
+                      placeholder="Enter your PAN No"
+                      type="text"
                     />
                   </FormGroup>
                   <FormGroup>
@@ -108,7 +119,7 @@ const Register = () => {
                     <Input
                       id="exampleEmail"
                       name="email"
-                      placeholder="with a placeholder"
+                      placeholder="Enter your address"
                       type="email"
                     />
                   </FormGroup>
@@ -117,7 +128,7 @@ const Register = () => {
                     <Input
                       id="exampleEmail"
                       name="email"
-                      placeholder="with a placeholder"
+                      placeholder="Enter your email address"
                       type="email"
                     />
                   </FormGroup>
@@ -135,11 +146,77 @@ const Register = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Button className="btn" color="primary">
+                  <Button
+                    className="btn"
+                    color="buttonColor"
+                    onClick={otpBlock}
+                  >
                     Generate OTP
                   </Button>
                 </div>
               </Col>
+            </Row>
+
+            <Row
+              id="otpBlock"
+              className="mt-3"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                display: "none",
+              }}
+            >
+              <Col xs="6">
+                <hr />
+                <Form>
+                  <FormGroup>
+                    <Label for="exampleEmail">Enter OTP: *</Label>
+                    <Input
+                      id="exampleEmail"
+                      name="email"
+                      placeholder="Enter the OTP you recieved"
+                      type="text"
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">Password: *</Label>
+                    <Input
+                      id="exampleEmail"
+                      name="password"
+                      placeholder="Enter a password"
+                      type="password"
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">Confirm Password: *</Label>
+                    <Input
+                      id="exampleEmail"
+                      name="password"
+                      placeholder="Re-enter your password"
+                      type="password"
+                    />
+                  </FormGroup>
+                </Form>
+              </Col>
+              <Row>
+                <Col>
+                  <div
+                    className=""
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Link to="/loginregister">
+                      <Button className="btn" color="buttonColor">
+                        Register
+                      </Button>
+                    </Link>
+                  </div>
+                </Col>
+              </Row>
             </Row>
           </Container>
         </CardBody>

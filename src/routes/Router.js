@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
+const LoginRegister = lazy(() => import("../LoginRegister"));
+const Register = lazy(() => import("../views/ui/Register"));
 
 /***** Pages ****/
 
@@ -60,6 +62,15 @@ const ThemeRoutes = [
       { path: "/companyprofileview", exact: true, element: <CompanyProfileView /> },
       { path: "/employeedetails", exact: true, element: <EmployeeDetails /> },
     ],
+    
+  },
+  {
+    path: "/loginregister",
+    element: <LoginRegister />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ];
 
