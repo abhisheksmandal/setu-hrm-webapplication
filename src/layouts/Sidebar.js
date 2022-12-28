@@ -115,13 +115,21 @@ const Sidebar = () => {
                 }
               >
                 <i className={navi.icon}></i>
-                <span className="ms-3 d-inline-block">{navi.title}</span>
+                <span className="ms-3 d-inline-block ">{navi.title}</span>
               </Link>
             </NavItem>
           ))}
-          <Button color="danger" tag="a" target="_blank" className="mt-3">
-            <Link to="loginregister" className="text-white">Help</Link>
-          </Button>
+          <Link to="loginregister" className="text-white text-decoration-none">
+            <Button
+              color="danger"
+              tag="a"
+              target="_blank"
+              className="mt-3 btn"
+              block
+            >
+              Help
+            </Button>
+          </Link>
         </Nav>
       </div>
     </div>
