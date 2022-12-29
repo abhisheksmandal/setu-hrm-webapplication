@@ -54,9 +54,14 @@ class RegisterForm extends React.Component {
       let fields = {};
       fields["fname"] = "";
       fields["lname"] = "";
-      fields["email"] = "";
+      fields["companyname"] = "";
+      fields["panno"] = "";
+      fields["address"] = "";
+      fields["emailid"] = "";
+      fields["otpcode"] = "";
       fields["mobileno"] = "";
       fields["password"] = "";
+      fields["confirmpassword"] = "";
       this.setState({ fields: fields });
       alert("Form submitted");
     }
@@ -69,18 +74,28 @@ class RegisterForm extends React.Component {
 
     if (!fields["fname"]) {
       formIsValid = false;
-      errors["fname"] = "*Please enter your First Name.";
+      errors["fname"] = "*Please enter your first name.";
+    }
+    if (typeof fields["fname"] !== "undefined") {
+      if (!fields["fname"].match(/^[a-zA-Z ]*$/)) {
+        formIsValid = false;
+        errors["fname"] = "*Please enter alphabet characters only.";
+      }
     }
     if (!fields["lname"]) {
       formIsValid = false;
-      errors["lname"] = "*Please enter your Last Name.";
+      errors["lname"] = "*Please enter your last name.";
     }
 
-    if (typeof fields["username"] !== "undefined") {
-      if (!fields["username"].match(/^[a-zA-Z ]*$/)) {
+    if (typeof fields["lname"] !== "undefined") {
+      if (!fields["lname"].match(/^[a-zA-Z ]*$/)) {
         formIsValid = false;
-        errors["username"] = "*Please enter alphabet characters only.";
+        errors["lname"] = "*Please enter alphabet characters only.";
       }
+    }
+    if (!fields["companyname"]) {
+      formIsValid = false;
+      errors["companyname"] = "*Please enter your company name.";
     }
 
     if (!fields["emailid"]) {
@@ -90,13 +105,30 @@ class RegisterForm extends React.Component {
 
     if (typeof fields["emailid"] !== "undefined") {
       //regular expression for email validation
-      var pattern = new RegExp(
+      var emailPattern = new RegExp(
         /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
       );
-      if (!pattern.test(fields["emailid"])) {
+      if (!emailPattern.test(fields["emailid"])) {
         formIsValid = false;
         errors["emailid"] = "*Please enter valid email-ID.";
       }
+    }
+    if (!fields["panno"]) {
+      formIsValid = false;
+      errors["panno"] = "*Please enter your PAN No.";
+    }
+
+    if (typeof fields["panno"] !== "undefined") {
+      //regular expression for email validation
+      var panPattern = new RegExp(/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/);
+      if (!panPattern.test(fields["panno"])) {
+        formIsValid = false;
+        errors["panno"] = "*Please enter valid email-ID.";
+      }
+    }
+    if (!fields["address"]) {
+      formIsValid = false;
+      errors["address"] = "*Please enter your address.";
     }
 
     if (!fields["mobileno"]) {
@@ -109,6 +141,10 @@ class RegisterForm extends React.Component {
         formIsValid = false;
         errors["mobileno"] = "*Please enter valid mobile no.";
       }
+    }
+    if (!fields["otpcode"]) {
+      formIsValid = false;
+      errors["otpcode"] = "*Please enter the OTP you recieved.";
     }
 
     if (!fields["password"]) {
@@ -125,6 +161,16 @@ class RegisterForm extends React.Component {
         formIsValid = false;
         errors["password"] = "*Please enter secure and strong password.";
       }
+    }
+
+    if (!fields["confirmpassword"]) {
+      formIsValid = false;
+      errors["confirmpassword"] = "*Please re-enter your password.";
+    }
+
+    if (fields["confirmpassword"] !== fields["password"]) {
+      formIsValid = false;
+      errors["confirmpassword"] = "*Re-entered password don't match.";
     }
 
     this.setState({
@@ -217,36 +263,51 @@ class RegisterForm extends React.Component {
                       <FormGroup>
                         <Label for="exampleEmail">Company Name: *</Label>
                         <Input
-                          id="exampleEmail"
-                          name="email"
+                          id="companyname"
+                          name="companyname"
                           placeholder="Enter your company name"
-                          type="email"
+                          type="text"
+                          value={this.state.fields.companyname}
+                          onChange={this.handleChange}
                         />
+                        <div className="errorMsg">
+                          {this.state.errors.companyname}
+                        </div>
                       </FormGroup>
 
                       <FormGroup>
                         <Label for="exampleEmail">PAN No: *</Label>
                         <Input
-                          id="exampleEmail"
-                          name="email"
+                          id="panno"
+                          name="panno"
                           placeholder="Enter your PAN No"
                           type="text"
+                          value={this.state.fields.panno}
+                          onChange={this.handleChange}
                         />
+                        <div className="errorMsg">
+                          {this.state.errors.panno}
+                        </div>
                       </FormGroup>
                       <FormGroup>
                         <Label for="exampleEmail">Address: *</Label>
                         <Input
-                          id="exampleEmail"
+                          id="address"
                           name="address"
                           placeholder="Enter your address"
                           type="text"
+                          value={this.state.fields.address}
+                          onChange={this.handleChange}
                         />
+                        <div className="errorMsg">
+                          {this.state.errors.address}
+                        </div>
                       </FormGroup>
                       <FormGroup>
                         <Label for="exampleEmail">Email address: *</Label>
                         <Input
-                          id="exampleEmail"
-                          name="email"
+                          id="emailid"
+                          name="emailid"
                           placeholder="Enter your email address"
                           type="email"
                           value={this.state.fields.emailid}
@@ -297,16 +358,21 @@ class RegisterForm extends React.Component {
                     <FormGroup>
                       <Label for="exampleEmail">Enter OTP: *</Label>
                       <Input
-                        id="exampleEmail"
-                        name="email"
+                        id="otpcode"
+                        name="otpcode"
                         placeholder="Enter the OTP you recieved"
                         type="text"
+                        value={this.state.fields.otpcode}
+                        onChange={this.handleChange}
                       />
+                      <div className="errorMsg">
+                        {this.state.errors.otpcode}
+                      </div>
                     </FormGroup>
                     <FormGroup>
                       <Label for="exampleEmail">Password: *</Label>
                       <Input
-                        id="exampleEmail"
+                        id="password"
                         name="password"
                         placeholder="Enter a password"
                         type="password"
@@ -320,11 +386,16 @@ class RegisterForm extends React.Component {
                     <FormGroup>
                       <Label for="exampleEmail">Confirm Password: *</Label>
                       <Input
-                        id="exampleEmail"
-                        name="password"
+                        id="confirmpassword"
+                        name="confirmpassword"
                         placeholder="Re-enter your password"
                         type="password"
+                        value={this.state.fields.confirmpassword}
+                        onChange={this.handleChange}
                       />
+                      <div className="errorMsg">
+                        {this.state.errors.confirmpassword}
+                      </div>
                     </FormGroup>
                   </Col>
                   <Row>
