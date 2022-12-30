@@ -33,11 +33,12 @@ const EmployeeRegistration = () => {
   return (
     <div>
       <Card>
+        <CardTitle tag="h3" className="border-bottom p-3 mb-0 text-center ">
+            Employee Registration
+          </CardTitle>
         <CardBody className="">
           <Container>
-            <Row>
-              <h3 className="text-center p-4">Employee Registration</h3>
-            </Row>
+            
             <Row>
               <Col>
                 <Form>

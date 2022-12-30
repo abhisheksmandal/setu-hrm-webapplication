@@ -15,11 +15,17 @@ import {
 } from "reactstrap";
 
 const ProjectAllocation = () => {
-    return (
-      <div>
-        
-      </div>
-    );
-  };
-  
-  export default ProjectAllocation;
+  return (
+    <div>
+      <Card>
+        <CardBody className="">
+          <Container>
+            
+          </Container>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
+
+export default ProjectAllocation;
