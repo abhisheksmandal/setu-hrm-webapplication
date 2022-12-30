@@ -13,6 +13,13 @@ import {
   FormText,
   Table,
 } from "reactstrap";
+// import user1 from "../../assets/images/users/user1.jpg";
+// <img
+//   src={user1}
+//   alt="profile"
+//   className="rounded-circle m-0"
+//   height="400"
+// ></img>;
 
 const ProfileView = () => {
   return (

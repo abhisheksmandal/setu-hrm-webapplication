@@ -48,7 +48,7 @@ const ProjectCreation = () => {
                 <div className="">
                   <FormGroup>
                     <Label for="exampleEmail">Start Date*:</Label>
-                    <Input type="date" id="exampleEmail" name="ProjectName" />
+                    <Input type="date" id="startDate" name="startDate" />
                   </FormGroup>
                 </div>
               </Col>
@@ -95,7 +95,7 @@ const ProjectCreation = () => {
               <Col>
                 <div className="">
                   <FormGroup>
-                    <Label for="exampleSelect">Manger*:</Label>
+                    <Label for="exampleSelect">Manager*:</Label>
                     <Input id="exampleSelect" name="select" type="select">
                       <option>Abhishek Mandal</option>
                       <option>Sunil Joshi</option>
@@ -109,11 +109,9 @@ const ProjectCreation = () => {
                   <FormGroup>
                     <Label for="exampleSelect">Status*:</Label>
                     <Input id="exampleSelect" name="select" type="select">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>On Going</option>
+                      <option>Pending</option>
+                      <option>Completed</option>
                     </Input>
                   </FormGroup>
                 </div>
