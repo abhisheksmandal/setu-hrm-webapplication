@@ -17,6 +17,10 @@ import { Link } from "react-router-dom";
 import { render } from "@testing-library/react";
 import React from "react";
 
+function disableTxt() {
+  document.getElementsByClassName("input").disabled = true;
+}
+
 function otpBlock() {
   console.log("clicked");
   var x = document.getElementById("otpBlock");
@@ -25,23 +29,34 @@ function otpBlock() {
   } else {
     x.style.display = "none";
   }
+  disableTxt();
 }
 
-class RegisterForm extends React.Component {
+class Register extends React.Component {
   constructor() {
     super();
     this.state = {
-      fields: {},
+      fields: {
+        fname: "",
+        lname: "",
+        companyname: "",
+        panno: "",
+        address: "",
+        emailid: "",
+      },
       errors: {},
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.submituserRegistrationForm =
       this.submituserRegistrationForm.bind(this);
+    this.submituserRegistrationOTPForm =
+      this.submituserRegistrationOTPForm.bind(this);
   }
 
   handleChange(e) {
     let fields = this.state.fields;
+    console.log(e.target.name);
     fields[e.target.name] = e.target.value;
     this.setState({
       fields,
@@ -50,24 +65,29 @@ class RegisterForm extends React.Component {
 
   submituserRegistrationForm(e) {
     e.preventDefault();
-    if (this.validateForm()) {
-      let fields = {};
-      fields["fname"] = "";
-      fields["lname"] = "";
-      fields["companyname"] = "";
-      fields["panno"] = "";
-      fields["address"] = "";
-      fields["emailid"] = "";
-      fields["otpcode"] = "";
-      fields["mobileno"] = "";
-      fields["password"] = "";
-      fields["confirmpassword"] = "";
+    if (this.validateRegisterForm()) {
+      let fields = {
+        fname: "",
+        lname: "",
+        companyname: "",
+        panno: "",
+        address: "",
+        emailid: "",
+      };
+      // fields["fname"] = "";
+      // fields["lname"] = "";
+      // fields["companyname"] = "";
+      // fields["panno"] = "";
+      // fields["address"] = "";
+      // fields["emailid"] = "";
       this.setState({ fields: fields });
-      alert("Form submitted");
+      alert("OTP sent. Please check your mail to get the OTP");
+      
+      otpBlock();
     }
   }
 
-  validateForm() {
+  validateRegisterForm() {
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
@@ -100,7 +120,7 @@ class RegisterForm extends React.Component {
 
     if (!fields["emailid"]) {
       formIsValid = false;
-      errors["emailid"] = "*Please enter your email-ID.";
+      errors["emailid"] = "*Please enter your email address.";
     }
 
     if (typeof fields["emailid"] !== "undefined") {
@@ -110,7 +130,7 @@ class RegisterForm extends React.Component {
       );
       if (!emailPattern.test(fields["emailid"])) {
         formIsValid = false;
-        errors["emailid"] = "*Please enter valid email-ID.";
+        errors["emailid"] = "*Invalid email address.";
       }
     }
     if (!fields["panno"]) {
@@ -123,7 +143,7 @@ class RegisterForm extends React.Component {
       var panPattern = new RegExp(/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/);
       if (!panPattern.test(fields["panno"])) {
         formIsValid = false;
-        errors["panno"] = "*Please enter valid email-ID.";
+        errors["panno"] = "*Invalid Pan No.";
       }
     }
     if (!fields["address"]) {
@@ -131,17 +151,30 @@ class RegisterForm extends React.Component {
       errors["address"] = "*Please enter your address.";
     }
 
-    if (!fields["mobileno"]) {
-      formIsValid = false;
-      errors["mobileno"] = "*Please enter your mobile no.";
-    }
+    this.setState({
+      errors: errors,
+    });
+    console.log(formIsValid);
+    return formIsValid;
+  }
 
-    if (typeof fields["mobileno"] !== "undefined") {
-      if (!fields["mobileno"].match(/^[0-9]{10}$/)) {
-        formIsValid = false;
-        errors["mobileno"] = "*Please enter valid mobile no.";
-      }
+  submituserRegistrationOTPForm(e) {
+    e.preventDefault();
+    if (this.validateOTPForm()) {
+      let fields = {};
+      fields["otpcode"] = "";
+      fields["password"] = "";
+      fields["confirmpassword"] = "";
+      this.setState({ fields: fields });
+      alert("Form submitted");
     }
+  }
+
+  validateOTPForm() {
+    let fields = this.state.fields;
+    let errors = {};
+    let formIsValid = true;
+
     if (!fields["otpcode"]) {
       formIsValid = false;
       errors["otpcode"] = "*Please enter the OTP you recieved.";
@@ -176,6 +209,7 @@ class RegisterForm extends React.Component {
     this.setState({
       errors: errors,
     });
+    console.log(formIsValid);
     return formIsValid;
   }
 
@@ -216,9 +250,10 @@ class RegisterForm extends React.Component {
                   <Col xs="3">
                     <div className="">
                       <FormGroup>
-                        <Label for="exampleEmail">First Name: </Label>
+                        <Label for="exampleEmail">First Name: *</Label>
                         <Input
                           id="fname"
+                          className="input"
                           name="fname"
                           placeholder="Enter your first name"
                           type="text"
@@ -234,9 +269,10 @@ class RegisterForm extends React.Component {
                   <Col xs="3">
                     <div className="">
                       <FormGroup>
-                        <Label for="exampleEmail">Last Name: </Label>
+                        <Label for="exampleEmail">Last Name: *</Label>
                         <Input
                           id="lname"
+                          className="input"
                           name="lname"
                           placeholder="Enter your last name"
                           type="text"
@@ -259,65 +295,65 @@ class RegisterForm extends React.Component {
                   }}
                 >
                   <Col xs="6">
-                    <Form>
-                      <FormGroup>
-                        <Label for="exampleEmail">Company Name: *</Label>
-                        <Input
-                          id="companyname"
-                          name="companyname"
-                          placeholder="Enter your company name"
-                          type="text"
-                          value={this.state.fields.companyname}
-                          onChange={this.handleChange}
-                        />
-                        <div className="errorMsg">
-                          {this.state.errors.companyname}
-                        </div>
-                      </FormGroup>
+                    <FormGroup>
+                      <Label for="exampleEmail">Company Name: *</Label>
+                      <Input
+                        id="companyname"
+                        className="input"
+                        name="companyname"
+                        placeholder="Enter your company name"
+                        type="text"
+                        value={this.state.fields.companyname}
+                        onChange={this.handleChange}
+                      />
+                      <div className="errorMsg">
+                        {this.state.errors.companyname}
+                      </div>
+                    </FormGroup>
 
-                      <FormGroup>
-                        <Label for="exampleEmail">PAN No: *</Label>
-                        <Input
-                          id="panno"
-                          name="panno"
-                          placeholder="Enter your PAN No"
-                          type="text"
-                          value={this.state.fields.panno}
-                          onChange={this.handleChange}
-                        />
-                        <div className="errorMsg">
-                          {this.state.errors.panno}
-                        </div>
-                      </FormGroup>
-                      <FormGroup>
-                        <Label for="exampleEmail">Address: *</Label>
-                        <Input
-                          id="address"
-                          name="address"
-                          placeholder="Enter your address"
-                          type="text"
-                          value={this.state.fields.address}
-                          onChange={this.handleChange}
-                        />
-                        <div className="errorMsg">
-                          {this.state.errors.address}
-                        </div>
-                      </FormGroup>
-                      <FormGroup>
-                        <Label for="exampleEmail">Email address: *</Label>
-                        <Input
-                          id="emailid"
-                          name="emailid"
-                          placeholder="Enter your email address"
-                          type="email"
-                          value={this.state.fields.emailid}
-                          onChange={this.handleChange}
-                        />
-                        <div className="errorMsg">
-                          {this.state.errors.emailid}
-                        </div>
-                      </FormGroup>
-                    </Form>
+                    <FormGroup>
+                      <Label for="exampleEmail">PAN No: *</Label>
+                      <Input
+                        id="panno"
+                        className="input"
+                        name="panno"
+                        placeholder="Enter your PAN No"
+                        type="text"
+                        value={this.state.fields.panno}
+                        onChange={this.handleChange}
+                      />
+                      <div className="errorMsg">{this.state.errors.panno}</div>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="exampleEmail">Address: *</Label>
+                      <Input
+                        id="address"
+                        className="input"
+                        name="address"
+                        placeholder="Enter your address"
+                        type="text"
+                        value={this.state.fields.address}
+                        onChange={this.handleChange}
+                      />
+                      <div className="errorMsg">
+                        {this.state.errors.address}
+                      </div>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="exampleEmail">Email Address: *</Label>
+                      <Input
+                        id="emailid"
+                        className="input"
+                        name="emailid"
+                        placeholder="Enter your email address"
+                        type="email"
+                        value={this.state.fields.emailid}
+                        onChange={this.handleChange}
+                      />
+                      <div className="errorMsg">
+                        {this.state.errors.emailid}
+                      </div>
+                    </FormGroup>
                   </Col>
                 </Row>
 
@@ -331,17 +367,30 @@ class RegisterForm extends React.Component {
                         alignItems: "center",
                       }}
                     >
-                      <Button
+                      {/* <Button
                         className="btn"
                         color="buttonColor"
                         onClick={otpBlock}
-                      >
+                        >
                         Generate OTP
-                      </Button>
+                      </Button> */}
+
+                      <input
+                        id="registerBtn"
+                        type="submit"
+                        className="btn bg-buttonColor text-white"
+                        value="Generate OTP"
+                        // onClick={this.submituserRegistrationForm}
+                      />
                     </div>
                   </Col>
                 </Row>
-
+              </Form>
+              <Form
+                method="post"
+                name="userRegistrationForm"
+                onSubmit={this.submituserRegistrationOTPForm}
+              >
                 <Row
                   id="otpBlock"
                   className="mt-3"
@@ -359,6 +408,7 @@ class RegisterForm extends React.Component {
                       <Label for="exampleEmail">Enter OTP: *</Label>
                       <Input
                         id="otpcode"
+                        className="input"
                         name="otpcode"
                         placeholder="Enter the OTP you recieved"
                         type="text"
@@ -410,15 +460,16 @@ class RegisterForm extends React.Component {
                       >
                         <input
                           type="submit"
-                          className="button"
+                          className="btn bg-buttonColor text-white"
                           value="Register"
+                          onClick={this.submituserRegistrationOTPForm}
                         />
 
-                        <Link to="/loginregister">
+                        {/* <Link to="/loginregister">
                           <Button className="btn" color="buttonColor">
-                            Register
+                          Register
                           </Button>
-                        </Link>
+                        </Link> */}
                       </div>
                     </Col>
                   </Row>
@@ -431,4 +482,4 @@ class RegisterForm extends React.Component {
     );
   }
 }
-export default RegisterForm;
+export default Register;
