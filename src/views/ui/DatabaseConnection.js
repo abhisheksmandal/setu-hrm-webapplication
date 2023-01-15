@@ -1,21 +1,20 @@
-const { Client } = require("pg");
+const { Pool, Client } = require("pg");
+
+const connetCon = "postgressql://postgres:$tar@localhost:5432/setuhrmwebapp";
 
 const client = new Client({
-  host: "localhost",
-  user: "postgres",
-  port: 5432,
-  password: "$tar",
-  database: "setuhrmwebapp",
+  connectionString: connetCon,
 });
 
-client.connect();
+if (client.connect()) {
+  console.log("Successfull");
+}
 
-client.query(`select * from otp_tbl`, (err, res) => {
-  if (err) {
-    console.log(err.rows);
-  } else {
-    console.log(err.message);
+client.query(
+  `SELECT * FROM public.otp_tbl
+ORDER BY otp_emailid ASC, otp_srno ASC `,
+  (err, res) => {
+    console.log(err, res);
+    client.end();
   }
-
-  client.end();
-});
+);
