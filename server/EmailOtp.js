@@ -27,7 +27,6 @@ function sendOTPMail(recieverid) {
   });
 }
 
-sendOTPMail("abhishek.s.mandal@gmail.com")
+// sendOTPMail("suniljoshi1013@gmail.com");
 
-// module.exports = { sendOTPMail }
-
+module.exports = { sendOTPMail }

@@ -29,6 +29,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const EmployeeSearch = () => {
   const [currentActiveTab, setCurrentActiveTab] = useState("1");
@@ -37,6 +38,14 @@ const EmployeeSearch = () => {
   const toggle = (tab) => {
     if (currentActiveTab !== tab) setCurrentActiveTab(tab);
   };
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
     <div>
       <Card>
@@ -112,12 +121,21 @@ const EmployeeSearch = () => {
                   <Col sm="12">
                     <div>
                       <Container className="bg-formGray pt-1 text-black rounded">
-                        <Form>
+                        <Form onSubmit={handleSubmit(onSubmit)}>
                           <Row className="mt-3">
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="FirstName">First Name:</Label>
-                                <Input id="fName" name="name" type="text" />
+                                <input
+                                  id="fName"
+                                  name="name"
+                                  type="text"
+                                  {...register("fname", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.fname?.type === "required" &&
+                                    "First Name is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
@@ -309,19 +327,18 @@ const EmployeeSearch = () => {
                               </FormGroup>
                             </Col>
                           </Row>
+                          <Button
+                          type="submit"
+                            color="primary"
+                            href=""
+                          >
+                            Save & Proceed
+                          </Button>
                         </Form>
                       </Container>
                       <Row className="mt-3">
                         <Col className="text-center">
-                          <Button
-                            color="primary"
-                            href=""
-                            onClick={() => {
-                              toggle("2");
-                            }}
-                          >
-                            Save & Proceed
-                          </Button>
+                          
                         </Col>
                         <Col className="text-end">
                           <FormGroup>
