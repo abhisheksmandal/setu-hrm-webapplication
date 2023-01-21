@@ -17,32 +17,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { func } from "prop-types";
 
-function disableTxt() {
-  document.getElementsByClassName("input").disabled = true;
-}
-
-function otpBlock() {
-  console.log("clicked");
-  var x = document.getElementById("otpBlock");
-  if (x.style.display === "none") {
-    x.style.display = "flex";
-  } else {
-    x.style.display = "none";
-  }
-  disableTxt();
-}
-
-// function handleSubmit(e) {
-//   e.preventDefault();
-//   otpBlock();
-//   console.log("You clicked submit.");
-// }
-
 export default function Employees() {
   function disableTxt() {
     let inp = document.getElementsByTagName("input");
     console.log(inp);
-    inp.disabled = true; 
+    inp.disabled = true;
   }
 
   function otpBlock() {
@@ -61,8 +40,30 @@ export default function Employees() {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (values, actions) => {
+    const vals = { ...values };
+    // actions.resetForm();
+    fetch("http://localhost:4000/auth/signup", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(vals),
+    })
+      .catch((err) => {
+        return;
+      })
+      .then((res) => {
+        if (!res || !res.ok || res.status >= 400) {
+          return;
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (!data) return;
+        // console.log(data);
+      });
     otpBlock();
   };
 
@@ -148,10 +149,10 @@ export default function Employees() {
               >
                 <Col xs="6">
                   <FormGroup>
-                    <Label for="exampleEmail">Company Name: *</Label>
+                    <div for="exampleEmail">Company Name: *</div>
                     <input
                       id="companyname"
-                      className="input"
+                      className="input col-12"
                       name="companyname"
                       placeholder="Enter your company name"
                       type="text"
@@ -183,10 +184,10 @@ export default function Employees() {
                     </div>
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleEmail">Address: *</Label>
+                    <div for="exampleEmail">Address: *</div>
                     <input
                       id="address"
-                      className="input"
+                      className="input col-12"
                       name="address"
                       placeholder="Enter your address"
                       type="text"
@@ -198,11 +199,11 @@ export default function Employees() {
                     </div>
                   </FormGroup>
                   <FormGroup>
-                    <div>Email</div>
+                    <div>Email Id:</div>
                     <input
                       className="col-12"
                       placeholder="Enter primary email"
-                      {...register("email", {
+                      {...register("emailid", {
                         required: true,
                         pattern:
                           /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,

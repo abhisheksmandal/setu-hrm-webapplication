@@ -1,2 +1,2 @@
-// const emailer = require("./EmailOtp");
-// emailer.sendOTPMail("suniljoshi1013@gmail.com");
+const emailer = require("./EmailOtp");
+emailer.sendOTPMail("abhishek.s.mandal@gmail.com", "111111");

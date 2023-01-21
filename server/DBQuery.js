@@ -2,7 +2,7 @@ const pool = require("./DatabaseConnection");
 
 pool.query(
   `SELECT public.otp_save(
-    'gfi@xyz.com', 
+    'abcd@xyz.com', 
     '672536', 
     '127.0.0.1'
   )`,

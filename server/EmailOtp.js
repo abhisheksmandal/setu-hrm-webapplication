@@ -1,4 +1,3 @@
-const otp = require("./OTPGenerator");
 var nodemailer = require("nodemailer");
 
 var transporter = nodemailer.createTransport({
@@ -7,17 +6,16 @@ var transporter = nodemailer.createTransport({
     user: "setuhrmwebapp@gmail.com",
     pass: "nvdpmsssjxwkwwfk",
   },
+  connectionTimeout: 60 * 1000,
 });
 
-var mailOptions = {
-  from: "setuhrmwebapp@gmail.com",
-  to: "",
-  subject: "Sending Email using Node.js",
-  text: `Hello, The One Time Password for your Registration is ${otp.generateOTP()}. This OTP will expire in 30 minutes. Thank you`,
-};
-
-function sendOTPMail(recieverid) {
-  mailOptions["to"] = recieverid;
+function sendOTPMail(recieverid, otp) {
+  let mailOptions = {
+    from: "setuhrmwebapp@gmail.com",
+    to: `${recieverid}`,
+    subject: "Sending Email using Node.js",
+    text: `Hello, The One Time Password for your Registration is ${otp}. This OTP will expire in 30 minutes. Thank you`,
+  };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
@@ -29,4 +27,4 @@ function sendOTPMail(recieverid) {
 
 // sendOTPMail("suniljoshi1013@gmail.com");
 
-module.exports = { sendOTPMail }
+module.exports = { sendOTPMail };
