@@ -61,7 +61,7 @@ const EmployeeRegistration = () => {
                   </div> */}
                   <div className="button-group text-end">
                     <Button className="btn" color="primary">
-                      Create new project
+                      Add new employee
                     </Button>
                   </div>
                 </Link>
