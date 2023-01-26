@@ -101,7 +101,7 @@ const Header = () => {
             </DropdownItem>
             <DropdownItem>
               <Link
-                to="loginregister"
+                to="login"
                 className="text-white text-decoration-none"
               >
                 <Button className="btn" color="danger" size="sm" block>
