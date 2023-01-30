@@ -15,29 +15,36 @@ import {
   FormText,
   Table,
 } from "reactstrap";
-import React from "react";
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox,
+} from "mdb-react-ui-kit";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { func } from "prop-types";
 import hash from "./PasswordHashing";
 // import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export default function Employees() {
-  function disableTxt() {
-    let inp = document.getElementById("lname");
-    console.log(inp);
-    inp.disabled = true;
-    console.log("Working");
-  }
+  const [genBtn, setState] = useState(false);
+  const [btnTxt, changeTxt] = useState("Generate OTP");
 
   function otpBlock() {
     console.log("otpBlock Unlocked!");
     var x = document.getElementById("otpBlock");
     if (x.style.display === "none") {
       x.style.display = "flex";
-    } else {
-      x.style.display = "none";
     }
-    // disableTxt();
+    // else {
+    //   x.style.display = "none";
+    // }
+    setState(true);
+    changeTxt("Regenerate OTP");
 
     let registerBtn = document.getElementById("registerBtn");
     registerBtn.value = "Regenerate OTP";
@@ -88,15 +95,11 @@ export default function Employees() {
 
   const onReg2Submit = (values, actions) => {
     const vals = { ...values };
-    console.log(vals);
     // Hashing the password
     vals.password = hash.hash(vals.password);
-    console.log(vals.password);
-    console.log(vals);
 
     //Hashing confirm password
     vals.confirmPassword = hash.hash(vals.confirmPassword);
-    console.log(vals.confirmPassword);
     console.log(vals);
 
     // actions.resetForm();
@@ -162,14 +165,14 @@ export default function Employees() {
                 <Col xs="3">
                   <div className="">
                     <>
-                      <label>First Name: *</label>
-                      <input
-                        id="fname"
-                        className="input col-12"
-                        name="fname"
+                      <label className="mt-3">First Name:</label>
+                      <MDBInput
+                        className="input1"
+                        size="s"
                         placeholder="Enter your first name"
                         type="text"
                         {...register("fname", { required: true })}
+                        disabled={genBtn}
                       />
                       <div className="error">
                         {errors.fname?.type === "required" &&
@@ -179,23 +182,21 @@ export default function Employees() {
                   </div>
                 </Col>
                 <Col xs="3">
-                  <div className="">
-                    <>
-                      <label>Last Name: *</label>
-                      <input
-                        id="lname"
-                        className="input col-12"
-                        name="lname"
-                        placeholder="Enter your last name"
-                        type="text"
-                        {...register("lname", { required: true })}
-                      />
-                      <div className="error">
-                        {errors.lname?.type === "required" &&
-                          "Last Name is required"}
-                      </div>
-                    </>
-                  </div>
+                  <>
+                    <label className="mt-3">Last Name:</label>
+                    <MDBInput
+                      className="input1"
+                      size="s"
+                      placeholder="Enter your last name"
+                      type="text"
+                      {...register("lname", { required: true })}
+                      disabled={genBtn}
+                    />
+                    <div className="error">
+                      {errors.lname?.type === "required" &&
+                        "Last Name is required"}
+                    </div>
+                  </>
                 </Col>
               </Row>
               <Row
@@ -208,14 +209,14 @@ export default function Employees() {
               >
                 <Col xs="6">
                   <>
-                    <label>Company Name: *</label>
-                    <input
-                      id="companyname"
-                      className="input col-12"
-                      name="companyname"
+                    <label className="mt-3">Company Address:</label>
+                    <MDBInput
+                      className="input1"
+                      size="s"
                       placeholder="Enter your company name"
                       type="text"
                       {...register("companyname", { required: true })}
+                      disabled={genBtn}
                     />
                     <div className="error">
                       {errors.companyname?.type === "required" &&
@@ -224,17 +225,17 @@ export default function Employees() {
                   </>
 
                   <>
-                    <label>PAN No: *</label>
-                    <input
-                      id="panno"
-                      className="input col-12"
-                      name="panno"
+                    <label className="mt-3">PAN No:</label>
+                    <MDBInput
+                      className="input1"
+                      size="s"
                       placeholder="Enter your PAN No"
                       type="text"
                       {...register("panno", {
                         required: true,
                         pattern: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/,
                       })}
+                      disabled={genBtn}
                     />
                     <div className="error">
                       {errors.panno?.type === "required" &&
@@ -243,14 +244,14 @@ export default function Employees() {
                     </div>
                   </>
                   <>
-                    <label>Address: *</label>
-                    <input
-                      id="address"
-                      className="input col-12"
-                      name="address"
+                    <label className="mt-3">Address:</label>
+                    <MDBInput
+                      className="input1"
+                      size="s"
                       placeholder="Enter your address"
                       type="text"
                       {...register("address", { required: true })}
+                      disabled={genBtn}
                     />
                     <div className="error">
                       {errors.address?.type === "required" &&
@@ -258,15 +259,17 @@ export default function Employees() {
                     </div>
                   </>
                   <>
-                    <label>Email Id:</label>
-                    <input
-                      className="col-12"
+                    <label className="mt-3">Email:</label>
+                    <MDBInput
+                      className="input1"
+                      size="s"
                       placeholder="Enter primary email"
                       {...register("emailid", {
                         required: true,
                         pattern:
                           /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,
                       })}
+                      disabled={genBtn}
                     />
                     <div className="error">
                       {errors.emailid?.type === "required" &&
@@ -288,11 +291,11 @@ export default function Employees() {
                       alignItems: "center",
                     }}
                   >
-                    <input
+                    <MDBInput
                       id="registerBtn"
                       type="submit"
-                      className="btn bg-buttonColor text-white"
-                      value="Generate OTP"
+                      className="btn bg-buttonColor text-white mt-3"
+                      value={btnTxt}
                     />
                   </div>
                 </Col>
@@ -310,7 +313,7 @@ export default function Employees() {
                   // display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  // display: "none",
+                  display: "none",
                 }}
               >
                 <Col xs="6">
@@ -318,31 +321,46 @@ export default function Employees() {
 
                   <FormGroup>
                     <label htmlFor="exampleEmail">Enter OTP: *</label>
-                    <input
+                    <MDBInput
                       id="otpcode"
                       className="input col-12"
                       placeholder="Enter the OTP you recieved"
                       type="text"
-                      {...register2("otpcode", { required: true })}
+                      {...register2("otpcode", {
+                        required: "OTP is required",
+                        pattern: {
+                          value: /^\d+$/,
+                          message: "Numbers only",
+                        },
+                        minLength: {
+                          value: 6,
+                          message: "OTP length is 6",
+                        },
+                        maxLength: {
+                          value: 6,
+                          message: "OTP length is 6",
+                        },
+                      })}
                     />
                     <div className="error">
-                      {errors2.otpcode?.type === "required" &&
-                        "OTP is required"}
+                      {errors2.otpcode && errors2.otpcode.message}
                     </div>
                   </FormGroup>
                   <FormGroup>
                     <label htmlFor="exampleEmail">Password: *</label>
-                    <input
+                    <MDBInput
                       id="password"
                       name="password"
                       placeholder="Enter a password"
-                      type="password"
+                      type="text"
                       className={"input col-12"}
                       {...register2("password", {
                         required: "Password is required",
                         pattern: {
-                          value: "",
-                          message: "",
+                          value:
+                            /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                          message:
+                            "Password should include at least one uppercase, one numeric value and one special character",
                         },
                         minLength: {
                           value: 8,
@@ -360,7 +378,7 @@ export default function Employees() {
                   </FormGroup>
                   <FormGroup>
                     <label htmlFor="exampleEmail">Confirm Password: *</label>
-                    <input
+                    <MDBInput
                       id="confirmPassword"
                       placeholder="Re-enter your password"
                       type="password"
@@ -387,7 +405,7 @@ export default function Employees() {
                         alignItems: "center",
                       }}
                     >
-                      <input
+                      <MDBInput
                         type="submit"
                         className="btn bg-buttonColor text-white"
                         value="Register"
