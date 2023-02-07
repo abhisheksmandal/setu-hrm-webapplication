@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
-const LoginRegister = lazy(() => import("../components/login/LoginRegister.js"));
+const Login = lazy(() => import("../components/login/Login.js"));
 const Register = lazy(() => import("../components/login/Register.js"));
 
 /***** Pages ****/
@@ -65,8 +65,8 @@ const ThemeRoutes = [
     
   },
   {
-    path: "/loginregister",
-    element: <LoginRegister />,
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/register",

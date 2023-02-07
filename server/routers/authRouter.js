@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../DatabaseConnection");
-const phash = require("../PasswordHashing");
+// const phash = require("../PasswordHashing");
 const emailer = require("../EmailOtp");
 const otp = require("../OTPGenerator");
 
-router.post("/signup", async (req, res) => {
+router.post("/reg1", async (req, res) => {
   let fname = req.body.fname;
   console.log(`First Name recieved: ${fname}`);
   let lname = req.body.lname;
@@ -32,6 +32,25 @@ router.post("/signup", async (req, res) => {
     }
   );
   emailer.sendOTPMail(emailid, genOtp);
+});
+
+router.post("/reg2", async (req, res) => {
+  let otpcode = req.body.otpcode;
+  console.log(`OTP recieved: ${otpcode}`);
+  let password = req.body.password;
+  console.log(`Password recieved: ${password}`);
+  // pool.query(
+  //   `SELECT public.otp_save(
+  //     '${emailid}',
+  //     '${genOtp}',
+  //     '127.0.0.1'
+  //   )`,
+  //   (err, res) => {
+  //     console.log(err, res);
+  //     // pool.end();
+  //   }
+  // );
+  // emailer.sendOTPMail(emailid, genOtp);
 });
 
 module.exports = router;

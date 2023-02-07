@@ -16,9 +16,6 @@ function App() {
   const [formValues, setFormValues] = useState(initialValues);
   const handleChange = (e) => {
     // console.log(e.target);
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, email: value });
-    console.log(formValues);
   };
 
   return (
@@ -33,25 +30,6 @@ function App() {
         </MDBCol>
 
         <MDBCol col="4" md="6" className="mt-5 pt-4">
-          {/* <div className="d-flex flex-row align-items-center justify-content-center">
-            <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-
-            <MDBBtn floating size="md" tag="a" className="me-2">
-              <MDBIcon fab icon="facebook-f" />
-            </MDBBtn>
-
-            <MDBBtn floating size="md" tag="a" className="me-2">
-              <MDBIcon fab icon="twitter" />
-            </MDBBtn>
-
-            <MDBBtn floating size="md" tag="a" className="me-2">
-              <MDBIcon fab icon="linkedin-in" />
-            </MDBBtn>
-          </div> */}
-
-          {/* <div className="divider d-flex align-items-center my-4">
-            <p className="text-center fw-bold mx-3 mb-0">Or</p>
-          </div> */}
 
           <label>Email:</label>
           <MDBInput
@@ -60,8 +38,6 @@ function App() {
             id="formControlLg"
             type="email"
             size="lg"
-            value={formValues.email}
-            onChange={handleChange}
           />
           <label>Password:</label>
           <MDBInput
@@ -70,8 +46,6 @@ function App() {
             id="formControlLg"
             type="password"
             size="lg"
-            value={formValues.password}
-            onChange={handleChange}
           />
 
           <div className="d-flex justify-content-between mb-4">
