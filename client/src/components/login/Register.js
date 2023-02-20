@@ -1,5 +1,3 @@
-// for
-
 import {
   Card,
   Row,
@@ -28,9 +26,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { func } from "prop-types";
 import hash from "./PasswordHashing";
+import { Link } from "react-router-dom";
 // import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export default function Employees() {
+  // const linker = Link();
+
   const [genBtn, setState] = useState(false);
   const [btnTxt, changeTxt] = useState("Generate OTP");
 
@@ -61,10 +62,12 @@ export default function Employees() {
     register: register2,
     formState: { errors: errors2 },
     handleSubmit: handleSubmit2,
+    reset: reset2,
     watch,
   } = useForm({ mode: "onTouched" });
 
   const onReg1Submit = (values, actions) => {
+    reset2();
     const vals = { ...values };
     console.log(vals);
 
@@ -92,6 +95,8 @@ export default function Employees() {
       });
     otpBlock();
   };
+
+  // const linker = Link();
 
   const onReg2Submit = (values, actions) => {
     const vals = { ...values };
@@ -124,7 +129,8 @@ export default function Employees() {
         if (!data) return;
         // console.log(data);
       });
-    otpBlock();
+    // otpBlock();
+    // linker.push("/starter");
   };
 
   const password = watch("password");
@@ -209,7 +215,7 @@ export default function Employees() {
               >
                 <Col xs="6">
                   <>
-                    <label className="mt-3">Company Address:</label>
+                    <label className="mt-3">Company Name:</label>
                     <MDBInput
                       className="input1"
                       size="s"
@@ -263,7 +269,7 @@ export default function Employees() {
                     <MDBInput
                       className="input1"
                       size="s"
-                      placeholder="Enter primary email"
+                      placeholder="Enter your email"
                       {...register("emailid", {
                         required: true,
                         pattern:
@@ -351,8 +357,8 @@ export default function Employees() {
                     <MDBInput
                       id="password"
                       name="password"
+                      type="password"
                       placeholder="Enter a password"
-                      type="text"
                       className={"input col-12"}
                       {...register2("password", {
                         required: "Password is required",

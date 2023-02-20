@@ -4,7 +4,7 @@ function generateOTP() {
   // which stores all digits
   var digits = "0123456789";
   let OTP = "";
-  console.log("Email is being sent...");
+  // console.log("Email is being sent...");
   for (let i = 0; i < 6; i++) {
     OTP += digits[Math.floor(Math.random() * 10)];
   }
