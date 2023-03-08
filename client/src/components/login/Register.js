@@ -80,18 +80,20 @@ export default function Employees() {
       },
       body: JSON.stringify(vals),
     })
-      .catch((err) => {
-        return;
-      })
-      .then((res) => {
-        if (!res || !res.ok || res.status >= 400) {
-          return;
-        }
-        return res.json();
-      })
+      // .catch((err) => {
+      //   return;
+      // })
+      .then((response) => response.json())
+      // .then((data) => {
+      //   // console.log("Its working");
+      //   console.log(data);
+      //   // if (!data) return;
+      //   // console.log(data);
+      // });
       .then((data) => {
-        if (!data) return;
-        // console.log(data);
+        console.log(data); // this will log the entire response object
+        // console.log(data.PromiseResult); // this will log the value inside PromiseResult
+        // display the value in the frontend as needed
       });
     otpBlock();
   };
@@ -116,18 +118,9 @@ export default function Employees() {
       },
       body: JSON.stringify(vals),
     })
-      .catch((err) => {
-        return;
-      })
-      .then((res) => {
-        if (!res || !res.ok || res.status >= 400) {
-          return;
-        }
-        return res.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        if (!data) return;
-        // console.log(data);
+        console.log(data);
       });
     // otpBlock();
     // linker.push("/starter");
