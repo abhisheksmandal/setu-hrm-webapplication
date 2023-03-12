@@ -6,7 +6,7 @@ var transporter = nodemailer.createTransport({
     user: "setuhrmwebapp@gmail.com",
     pass: "nvdpmsssjxwkwwfk",
   },
-  connectionTimeout: 60 * 1000,
+  connectionTimeout: 60 * 100,
 });
 
 function sendOTPMail(recieverid, otp) {

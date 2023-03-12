@@ -1,5 +1,3 @@
-// for
-
 import {
   Card,
   Row,
@@ -28,9 +26,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { func } from "prop-types";
 import hash from "./PasswordHashing";
+import { Link } from "react-router-dom";
 // import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export default function Employees() {
+  // const linker = Link();
+
   const [genBtn, setState] = useState(false);
   const [btnTxt, changeTxt] = useState("Generate OTP");
 
@@ -61,10 +62,12 @@ export default function Employees() {
     register: register2,
     formState: { errors: errors2 },
     handleSubmit: handleSubmit2,
+    reset: reset2,
     watch,
   } = useForm({ mode: "onTouched" });
 
   const onReg1Submit = (values, actions) => {
+    reset2();
     const vals = { ...values };
     console.log(vals);
 
@@ -77,21 +80,25 @@ export default function Employees() {
       },
       body: JSON.stringify(vals),
     })
-      .catch((err) => {
-        return;
-      })
-      .then((res) => {
-        if (!res || !res.ok || res.status >= 400) {
-          return;
-        }
-        return res.json();
-      })
+      // .catch((err) => {
+      //   return;
+      // })
+      .then((response) => response.json())
+      // .then((data) => {
+      //   // console.log("Its working");
+      //   console.log(data);
+      //   // if (!data) return;
+      //   // console.log(data);
+      // });
       .then((data) => {
-        if (!data) return;
-        // console.log(data);
+        console.log(data); // this will log the entire response object
+        // console.log(data.PromiseResult); // this will log the value inside PromiseResult
+        // display the value in the frontend as needed
       });
     otpBlock();
   };
+
+  // const linker = Link();
 
   const onReg2Submit = (values, actions) => {
     const vals = { ...values };
@@ -111,20 +118,12 @@ export default function Employees() {
       },
       body: JSON.stringify(vals),
     })
-      .catch((err) => {
-        return;
-      })
-      .then((res) => {
-        if (!res || !res.ok || res.status >= 400) {
-          return;
-        }
-        return res.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        if (!data) return;
-        // console.log(data);
+        console.log(data);
       });
-    otpBlock();
+    // otpBlock();
+    // linker.push("/starter");
   };
 
   const password = watch("password");
@@ -209,7 +208,7 @@ export default function Employees() {
               >
                 <Col xs="6">
                   <>
-                    <label className="mt-3">Company Address:</label>
+                    <label className="mt-3">Company Name:</label>
                     <MDBInput
                       className="input1"
                       size="s"
@@ -263,7 +262,7 @@ export default function Employees() {
                     <MDBInput
                       className="input1"
                       size="s"
-                      placeholder="Enter primary email"
+                      placeholder="Enter your email"
                       {...register("emailid", {
                         required: true,
                         pattern:
@@ -351,8 +350,8 @@ export default function Employees() {
                     <MDBInput
                       id="password"
                       name="password"
+                      type="password"
                       placeholder="Enter a password"
-                      type="text"
                       className={"input col-12"}
                       {...register2("password", {
                         required: "Password is required",
