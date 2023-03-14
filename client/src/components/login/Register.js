@@ -99,6 +99,7 @@ export default function Employees() {
   };
 
   // const linker = Link();
+  const [message, setMessage] = useState("");
 
   const onReg2Submit = (values, actions) => {
     const vals = { ...values };
@@ -121,6 +122,11 @@ export default function Employees() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setMessage(data);
+        // actions.resetForm();
+        setTimeout(() => {
+          setMessage("");
+        }, 3000);
       });
     // otpBlock();
     // linker.push("/starter");
@@ -419,6 +425,7 @@ export default function Employees() {
                   </Col>
                 </Row>
               </Row>
+              <div>{message}</div>
             </Form>
           </Container>
         </CardBody>
