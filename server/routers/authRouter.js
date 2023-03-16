@@ -2,35 +2,52 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../DatabaseConnection");
 // const phash = require("../PasswordHashing");
-const emailer = require("../EmailOtp");
-const otp = require("../OTPGenerator");
+
+let fname;
+let lname;
+let compName;
+let panno;
+let address;
+let emailid;
+let genOtp;
+let emailer = require("../EmailOtp");
+let otp = require("../OTPGenerator");
+let myVar = { data: "" };
 
 router.post("/reg1", async (req, res) => {
-  let fname = req.body.fname;
-  console.log(`First Name recieved: ${fname}`);
-  let lname = req.body.lname;
-  console.log(`Last Name recieved: ${lname}`);
-  let compName = req.body.companyname;
-  console.log(`Company Name recieved: ${compName}`);
-  let panno = req.body.panno;
-  console.log(`Pan No recieved: ${panno}`);
-  let address = req.body.address;
-  console.log(`Address recieved: ${address}`);
-  let emailid = req.body.emailid;
-  console.log(`Email ID recieved: ${emailid}`);
-  let genOtp = otp.generateOTP();
-  console.log(`Otp generated: ${genOtp}`);
-  pool.query(
-    `SELECT public.otp_save(
-      '${emailid}', 
-      '${genOtp}', 
-      '127.0.0.1'
-    )`,
-    (err, res) => {
-      console.log(err, res);
-      // pool.end();
-    }
-  );
+  fname = req.body.fname;
+  console.log(`First Name received: ${fname}`);
+  lname = req.body.lname;
+  console.log(`Last Name received: ${lname}`);
+  compName = req.body.companyname;
+  console.log(`Company Name received: ${compName}`);
+  panno = req.body.panno;
+  console.log(`Pan No received: ${panno}`);
+  address = req.body.address;
+  console.log(`Address received: ${address}`);
+  emailid = req.body.emailid;
+  console.log(`Email ID received: ${emailid}`);
+  genOtp = otp.generateOTP();
+  console.log(`OTP generated: ${genOtp}`);
+
+  try {
+    const result = await pool.query(
+      `SELECT public.otp_save(
+        '${emailid}', 
+        '${genOtp}', 
+        '127.0.0.1'
+      )`
+    );
+
+    const otpSaveResult = result.rows[0].otp_save;
+    console.log(otpSaveResult);
+
+    res.json(otpSaveResult);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Something went wrong");
+  }
+
   emailer.sendOTPMail(emailid, genOtp);
 });
 
@@ -40,17 +57,29 @@ router.post("/reg2", async (req, res) => {
   let password = req.body.password;
   console.log(`Password recieved: ${password}`);
   // pool.query(
-  //   `SELECT public.otp_save(
-  //     '${emailid}',
-  //     '${genOtp}',
-  //     '127.0.0.1'
-  //   )`,
+  //   `SELECT insert_regdata('${emailid}', '${compemailid}', '${fname}', '${lname}', '${compName}', '${panno}', '${address}', '${emailid}')`,
   //   (err, res) => {
   //     console.log(err, res);
   //     // pool.end();
   //   }
   // );
-  // emailer.sendOTPMail(emailid, genOtp);
+
+  try {
+    const result = await pool.query(
+      `SELECT public.otp_validate(
+        '${emailid}', 
+        '${otpcode}'
+      )`
+    );
+
+    const validateMessage = result.rows[0].otp_validate;
+    console.log(result);
+
+    res.json(validateMessage);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Something went wrong");
+  }
 });
 
 module.exports = router;
