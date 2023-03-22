@@ -53,29 +53,38 @@ router.post("/reg1", async (req, res) => {
 
 router.post("/reg2", async (req, res) => {
   let otpcode = req.body.otpcode;
-  console.log(`OTP recieved: ${otpcode}`);
+  console.log(`OTP received: ${otpcode}`);
   let password = req.body.password;
-  console.log(`Password recieved: ${password}`);
-  // pool.query(
-  //   `SELECT insert_regdata('${emailid}', '${compemailid}', '${fname}', '${lname}', '${compName}', '${panno}', '${address}', '${emailid}')`,
-  //   (err, res) => {
-  //     console.log(err, res);
-  //     // pool.end();
-  //   }
-  // );
+  console.log(`Password received: ${password}`);
 
   try {
-    const result = await pool.query(
+    const otpResult = await pool.query(
       `SELECT public.otp_validate(
         '${emailid}', 
         '${otpcode}'
       )`
     );
 
-    const validateMessage = result.rows[0].otp_validate;
-    console.log(result);
+    const validateMessage = otpResult.rows[0].otp_validate;
+    console.log(otpResult);
 
-    res.json(validateMessage);
+    const loginResult = await pool.query(
+      `SELECT public.login_save(
+        '${fname}', 
+        '${lname}', 
+        '${emailid}', 
+        '${password}', 
+        '${panno}', 
+        '${compName}', 
+        '${address}', 
+        '127.0.0.1'
+      )`
+    );
+
+    const loginMessage = loginResult.rows[0].login_save;
+    console.log(loginResult);
+
+    res.json({ validateMessage, loginMessage });
   } catch (err) {
     console.error(err);
     res.status(500).send("Something went wrong");
