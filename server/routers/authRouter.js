@@ -91,4 +91,28 @@ router.post("/reg2", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+  let loginEmail = req.body.loginEmail;
+  console.log(`ID received: ${loginEmail}`);
+  let loginPass = req.body.loginPass;
+  console.log(`password received: ${loginPass}`);
+
+  try {
+    const loginResult = await pool.query(
+      `SELECT public.login_validate(
+        '${loginEmail}', 
+        '${loginPass}'
+      )`
+    );
+
+    const validateMessage = loginResult.rows[0].login_validate;
+    console.log(loginResult);
+
+    res.json({ validateMessage });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Something went wrong");
+  }
+});
+
 module.exports = router;
