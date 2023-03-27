@@ -269,6 +269,251 @@ const Reports = () => {
             </Container>
           </CardBody>
         </Card>
+        <br />
+        <br />
+        <Card>
+          <CardBody>
+            <Container>
+              <Row className="mt-3">
+                <Col xs="9">
+                  <div style={{ height: "50px" }}>
+                    <Form>
+                      <FormGroup>
+                        <Input
+                          style={{ height: "50px" }}
+                          id="search"
+                          name="search"
+                          placeholder="Search Employee"
+                          type="text"
+                        />
+                      </FormGroup>
+                    </Form>
+                  </div>
+                </Col>
+              </Row>
+              <Row className="mt-4">
+                <Col xs="3">
+                  <div style={{ heigth: "50px" }}>
+                    <label>Total searches: 3 </label>
+                  </div>
+                </Col>
+              </Row>
+              <Row className="mt-4">
+                <Col>
+                  <Table bordered hover>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>Mark</td>
+                      </tr>
+                      <tr>
+                        <td>Jacob</td>
+                      </tr>
+                      <tr>
+                        <td>Larry</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Col>
+              </Row>
+            </Container>
+          </CardBody>
+        </Card>
+        <br />
+        <br />
+        <h3 className="border-bottom p-3 mb-0 text-center ">
+          Terminate Employee
+        </h3>
+        <Card>
+          <CardBody>
+            <Row className="mt-3">
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="exampleEmail">Employee name:</Label>
+                  <Input id="" name="date" placeholder="" type="text" />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="date">Termination Date:</Label>
+                  <Input type="date" id="fromdate" name="date" />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="exampleEmail">Current Designation:</Label>
+                  <Input id="" name="date" placeholder="" type="text" />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="designation">Termination Reason</Label>
+                  <Input id="desi" name="desi" type="select" />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <FormGroup>
+                  <Label for="exampleText">Secondary Reason</Label>
+                  <Input id="exampleText" name="text" type="textarea" />
+                </FormGroup>
+              </Col>
+            </Row>
+          </CardBody>
+        </Card>
+        <Card>
+          <Row>
+            <Col>
+              {" "}
+              <br />
+              <h5 className=" p-3 mb-0 text-center ">
+                Pavan Pawar has been alloted 5 tasks. Do you want to delete
+                those tasks or shift to unallocated tasks?
+              </h5>
+            </Col>
+          </Row>
+          <br />
+
+          <Row className="mt-3">
+            <Col className="text-center">
+              <Input name="radio1" type="radio" />
+              <Label check> Shift to Unallocated Tasks</Label>
+            </Col>
+            <Col className="text-center">
+              <Input name="radio1" type="radio" />
+              <Label check> Delete the Tasks</Label>
+            </Col>
+          </Row>
+        </Card>
+        <Row className="mt-3">
+          <Col className="text-center">
+            <Button className="btn text-center" color="primary">
+              Save & Terminate
+            </Button>
+          </Col>
+          <Col className="text-center">
+            <Button className="btn text-center" color="primary">
+              Cancel
+            </Button>
+          </Col>
+        </Row>
+        <br />
+        <br />
+        <h3 className="border-bottom p-3 mb-0 text-center ">Promote</h3>
+        <Card>
+          <CardBody>
+            <Row className="mt-3">
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="exampleEmail">Employee name:</Label>
+                  <Input id="" name="date" placeholder="" type="text" />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="date">Promotion Date:</Label>
+                  <Input type="date" id="fromdate" name="date" />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="exampleEmail">Current Designation:</Label>
+                  <Input id="" name="date" placeholder="" type="text" />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="designation">Current Salary</Label>
+                  <Input id="" name="salary" type="text" />
+                </FormGroup>
+              </Col>
+            </Row>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <Row className="mt-3">
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="exampleEmail">New Designation:</Label>
+                  <Input id="desi" name="desi" type="select" />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="date">Salary:</Label>
+                  <Input type="text" id="fromdate" name="date" />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <Col xs="6" sm="4">
+                <Form>
+                  <FormGroup>
+                    <Label for="">Basic: *</Label>
+                    <Input id="text" name="text" placeholder="" type="text" />
+                  </FormGroup>
+                </Form>
+              </Col>
+              <Col xs="6" sm="4">
+                <Form>
+                  <FormGroup>
+                    <Label for="">HRA: * </Label>
+                    <Input type="text" id="text" name="text" />
+                  </FormGroup>
+                </Form>
+              </Col>
+              <Col sm="4">
+                <Form>
+                  <FormGroup>
+                    <Label for="">Conveyance Allowance: *</Label>
+                    <Input type="text" id="text" name="text" />
+                  </FormGroup>
+                </Form>
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <Col xs="6" sm="4">
+                <Form>
+                  <FormGroup>
+                    <Label for="">Internet Allowance: </Label>
+                    <Input id="text" name="text" placeholder="" type="text" />
+                  </FormGroup>
+                </Form>
+              </Col>
+              <Col xs="6" sm="4">
+                <Form>
+                  <FormGroup>
+                    <Label for="">PF: * </Label>
+                    <Input type="text" id="text" name="text" />
+                  </FormGroup>
+                </Form>
+              </Col>
+            </Row>
+          </CardBody>
+        </Card>
+        <Row className="mt-3">
+          <Col className="text-center">
+            <Button className="btn text-center" color="primary">
+              Save & Proceed
+            </Button>
+          </Col>
+          <Col className="text-center">
+            <Button className="btn text-center" color="primary">
+              Cancel
+            </Button>
+          </Col>
+        </Row>
       </div>
     </div>
   );
