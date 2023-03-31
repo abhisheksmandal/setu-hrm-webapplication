@@ -105,10 +105,10 @@ router.post("/login", async (req, res) => {
       )`
     );
 
-    const validateMessage = loginResult.rows[0].login_validate;
+    const loginMessage = loginResult.rows[0].login_validate;
     console.log(loginResult);
 
-    res.json({ validateMessage });
+    res.json({ loginMessage });
   } catch (err) {
     console.error(err);
     res.status(500).send("Something went wrong");

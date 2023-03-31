@@ -12,9 +12,46 @@ import {
   Input,
   FormText,
 } from "reactstrap";
+
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox,
+  Select,
+} from "mdb-react-ui-kit";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const ProjectCreation = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ mode: "onTouched" });
+
+  const onProjCreate = (values, actions) => {
+    const vals = { ...values };
+    console.log(vals);
+
+    // actions.resetForm();
+    fetch("http://localhost:4000/auth/projcreate", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(vals),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div>
       <Card>
@@ -24,115 +61,191 @@ const ProjectCreation = () => {
         </CardTitle>
         <CardBody className="">
           <Container>
-            <Row className="mt-3">
-              <Col>
-                <div className="">
-                  <FormGroup>
-                    <Label for="exampleEmail">Name*:</Label>
-                    <Input id="exampleEmail" name="ProjectName" />
-                  </FormGroup>
-                </div>
-              </Col>
-              <Col>
-                <div className="">
-                  {" "}
-                  <FormGroup>
-                    <Label for="exampleEmail">Type*:</Label>
-                    <Input id="exampleEmail" name="ProjectType" />
-                  </FormGroup>
-                </div>
-              </Col>
-            </Row>
-            <Row className="mt-3">
-              <Col>
-                <div className="">
-                  <FormGroup>
-                    <Label for="exampleEmail">Start Date*:</Label>
-                    <Input type="date" id="startDate" name="startDate" />
-                  </FormGroup>
-                </div>
-              </Col>
-              <Col>
-                <div className="">
-                  {" "}
-                  <FormGroup>
-                    <Label for="exampleEmail">End Date*:</Label>
-                    <Input type="date" id="exampleEmail" name="ProjectType" />
-                  </FormGroup>
-                </div>
-              </Col>
-            </Row>
-            <Row className="mt-3">
-              <FormGroup>
-                <Label for="exampleText">Description*:</Label>
-                <Input id="exampleText" name="text" type="textarea" />
-              </FormGroup>
-            </Row>
-            <Row className="mt-3">
-              <Col>
-                <div className="">
-                  <FormGroup>
-                    <Label for="exampleEmail">Budget*:</Label>
-                    <Input id="exampleEmail" name="ProjectName" type="number" />
-                  </FormGroup>
-                </div>
-              </Col>
+            <Form
+              method="post"
+              name="ProjectCreateForm"
+              onSubmit={handleSubmit(onProjCreate)}
+            >
+              <Row className="mt-3">
+                <Col>
+                  <div className="">
+                    <FormGroup>
+                      <Label for="exampleEmail">Project Name*:</Label>
+                      <MDBInput
+                        className="input1"
+                        size="s"
+                        placeholder="Enter your project name"
+                        type="text"
+                        {...register("name", { required: true })}
+                      />
+                      <div className="error">
+                        {errors.name?.type === "required" &&
+                          "Project Name is required"}
+                      </div>
+                    </FormGroup>
+                  </div>
+                </Col>
+                <Col>
+                  <div className="">
+                    {" "}
+                    <FormGroup>
+                      <Label for="exampleEmail">Type*:</Label>
+                      <Input id="exampleEmail" name="ProjectType" />
+                    </FormGroup>
+                  </div>
+                </Col>
+              </Row>
+              <Row className="mt-3">
+                <Col>
+                  <div className="">
+                    <FormGroup>
+                      <Label for="exampleEmail">Start Date*:</Label>
+                      <MDBInput
+                        className="input1"
+                        size="s"
+                        // placeholder="Enter your project name"
+                        type="date"
+                        {...register("startDate", { required: true })}
+                      />
+                      <div className="error">
+                        {errors.startDate?.type === "required" &&
+                          "Start Date is required"}
+                      </div>
+                    </FormGroup>
+                  </div>
+                </Col>
+                <Col>
+                  <div className="">
+                    {" "}
+                    <FormGroup>
+                      <Label>End Date*:</Label>
+                      <MDBInput
+                        className="input1"
+                        size="s"
+                        // placeholder="Enter your project name"
+                        type="date"
+                        {...register("endDate", { required: true })}
+                      />
+                      <div className="error">
+                        {errors.endDate?.type === "required" &&
+                          "End Date is required"}
+                      </div>
+                    </FormGroup>
+                  </div>
+                </Col>
+              </Row>
+              <Row className="mt-3">
+                <FormGroup>
+                  <Label for="exampleText">Description*:</Label>
+                  <MDBInput
+                    type="textarea"
+                    {...register("description", { required: true })}
+                  />
+                  <div className="error">
+                    {errors.description?.type === "required" &&
+                      "Description is required"}
+                  </div>
+                  {/* <MDBInput
+                    id="exampleText"
+                    name="text"
+                    type="textarea"
+                    {...register("startDate", { required: true })}
+                  />
+                  <div className="error">
+                    {errors.startDate?.type === "required" &&
+                      "Start Date is required"}
+                  </div> */}
+                </FormGroup>
+              </Row>
+              <Row className="mt-3">
+                <Col>
+                  <div className="">
+                    <FormGroup>
+                      <Label for="exampleEmail">Budget*:</Label>
+                      <MDBInput
+                        type="number"
+                        {...register("budget", { required: true })}
+                      />
+                      <div className="error">
+                        {errors.budget?.type === "required" &&
+                          "Budget is required"}
+                      </div>
+                    </FormGroup>
+                  </div>
+                </Col>
 
-              <Col>
-                <div className="">
-                  <FormGroup>
-                    <Label for="exampleSelect">Billable*:</Label>
-                    <Input id="exampleSelect" name="select" type="select">
-                      <option>Yes</option>
-                      <option>No</option>
-                    </Input>
-                  </FormGroup>
-                </div>
-              </Col>
-            </Row>
+                <Col>
+                  <div className="">
+                    <FormGroup>
+                      <Label>Billable*:</Label>
+                      <Select
+                        {...register("billable", { required: true })}
+                        name="billable"
+                      >
+                        <option>Yes</option>
+                        <option>No</option>
+                      </Select>
+                      <div className="error">
+                        {errors.billable && "Billable is required"}
+                      </div>
+                      {/* <Select id="billable" name="billable">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </Select> */}
+                    </FormGroup>
+                  </div>
+                </Col>
+              </Row>
 
-            <Row className="mt-3">
-              <Col>
-                <div className="">
-                  <FormGroup>
-                    <Label for="exampleSelect">Manager*:</Label>
-                    <Input id="exampleSelect" name="select" type="select">
-                      <option>Abhishek Mandal</option>
-                      <option>Sunil Joshi</option>
-                      <option>Hemant Mhalsekar</option>
-                    </Input>
-                  </FormGroup>
-                </div>
-              </Col>
-              <Col>
-                <div className="">
-                  <FormGroup>
-                    <Label for="exampleSelect">Status*:</Label>
-                    <Input id="exampleSelect" name="select" type="select">
-                      <option>On Going</option>
-                      <option>Pending</option>
-                      <option>Completed</option>
-                    </Input>
-                  </FormGroup>
-                </div>
-              </Col>
-            </Row>
-            <Row className="mt-3 mb-3">
-              <Link
+              <Row className="mt-3">
+                <Col>
+                  <div className="">
+                    <FormGroup>
+                      <Label for="exampleSelect">Manager*:</Label>
+                      <Input id="exampleSelect" name="select" type="select">
+                        <option>Abhishek Mandal</option>
+                        <option>Sunil Joshi</option>
+                        <option>Hemant Mhalsekar</option>
+                      </Input>
+                    </FormGroup>
+                  </div>
+                </Col>
+                <Col>
+                  <div className="">
+                    <FormGroup>
+                      <Label for="exampleSelect">Status*:</Label>
+                      <Input id="exampleSelect" name="select" type="select">
+                        <option>On Going</option>
+                        <option>Pending</option>
+                        <option>Completed</option>
+                      </Input>
+                    </FormGroup>
+                  </div>
+                </Col>
+              </Row>
+              <Row className="mt-3 mb-3">
+                {/* <Link
                 to="/project"
                 // className={
                 //   location.pathname === "/projectcreation"
                 //     ? "text-primary nav-link py-3"
                 //     : "nav-link text-secondary py-3 primary"
                 // }
-              >
+              > */}
                 <div className="button-group text-center">
-                  <Button className="btn" color="buttonColor">
+                  <Button id="registerBtn" type="submit" color="buttonColor">
                     Create new project
                   </Button>
+                  {/* <MDBInput
+                    id="registerBtn"
+                    type="submit"
+                    className="btn btn bg-buttonColor text-white mt-3"
+                    value="Create new project"
+                  /> */}
                 </div>
-              </Link>
-            </Row>
+                {/* </Link> */}
+              </Row>
+            </Form>
           </Container>
         </CardBody>
       </Card>

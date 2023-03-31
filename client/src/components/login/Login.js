@@ -49,11 +49,11 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        const messageString = JSON.stringify(data.validateMessage); // Convert the object to a string
+        const messageString = JSON.stringify(data.loginMessage); // Convert the object to a string
         setMessage(messageString);
         console.log(messageString);
-        if (messageString === '"OTP is correct"') {
-          console.log("IT IS WORKING!");
+        if (messageString === '"Login successful"') {
+          console.log(messageString);
           navigate("/starter");
         }
       })
