@@ -15,8 +15,43 @@ import {
   ButtonGroup,
   Badge,
 } from "reactstrap";
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox,
+  Select,
+} from "mdb-react-ui-kit";
+import { useForm } from "react-hook-form";
 
 const TaskAllocation = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ mode: "onTouched" });
+
+  const onTaskAllocate = (values, actions) => {
+    const vals = { ...values };
+    console.log(vals);
+
+    // actions.resetForm();
+    fetch("http://localhost:4000/auth/projcreate", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(vals),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div>
       <Card>
@@ -31,13 +66,29 @@ const TaskAllocation = () => {
                 <Col xs="6">
                   <FormGroup>
                     <Label for="projname">Project:*</Label>
-                    <Input id="proj" name="proj" type="select">
+                    <select
+                      id="exampleSelect"
+                      name="select"
+                      className="col-12 p-2 border rounded-3"
+                      {...register("projectname", { required: true })}
+                    >
+                      <option value="">--Please choose an option--</option>
                       <option>Project 1</option>
                       <option>Project 2</option>
                       <option>Project 3</option>
                       <option>Project 4</option>
                       <option>Project 5</option>
-                    </Input>
+                    </select>
+                    {errors.projectname && (
+                      <div className="error">Please choose an option.</div>
+                    )}
+                    {/* <Input id="proj" name="proj" type="select">
+                      <option>Project 1</option>
+                      <option>Project 2</option>
+                      <option>Project 3</option>
+                      <option>Project 4</option>
+                      <option>Project 5</option>
+                    </Input> */}
                   </FormGroup>
                 </Col>
               </Row>
@@ -67,7 +118,12 @@ const TaskAllocation = () => {
               <Row className="mt-3">
                 <FormGroup>
                   <Label for="descText">Description:*</Label>
-                  <Input id="description" name="desc" type="textarea" placeholder="Enter your project description"/>
+                  <MDBInput
+                    id="description"
+                    name="desc"
+                    type="textarea"
+                    placeholder="Enter your project description"
+                  />
                 </FormGroup>
               </Row>
 
@@ -152,9 +208,12 @@ const TaskAllocation = () => {
               </Row>
               <Row className="mt-3">
                 <Col className="text-center">
-                  <Button color="primary" href="task.js">
+                <Button id="registerBtn" type="submit" color="buttonColor">
                     Submit
                   </Button>
+                  {/* <Button color="primary" href="task.js">
+                    Submit
+                  </Button> */}
                 </Col>
               </Row>
             </Form>

@@ -178,20 +178,19 @@ const ProjectCreation = () => {
                   <div className="">
                     <FormGroup>
                       <Label>Billable*:</Label>
-                      <Select
+                      <select
+                        id="exampleSelect"
+                        name="select"
+                        className="col-12 p-2 border rounded-3"
                         {...register("billable", { required: true })}
-                        name="billable"
                       >
-                        <option>Yes</option>
-                        <option>No</option>
-                      </Select>
-                      <div className="error">
-                        {errors.billable && "Billable is required"}
-                      </div>
-                      {/* <Select id="billable" name="billable">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </Select> */}
+                        <option value="">--Please choose an option--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                      {errors.selectedOption && (
+                        <div className="error">Please choose an option.</div>
+                      )}
                     </FormGroup>
                   </div>
                 </Col>
@@ -202,11 +201,22 @@ const ProjectCreation = () => {
                   <div className="">
                     <FormGroup>
                       <Label for="exampleSelect">Manager*:</Label>
-                      <Input id="exampleSelect" name="select" type="select">
-                        <option>Abhishek Mandal</option>
-                        <option>Sunil Joshi</option>
-                        <option>Hemant Mhalsekar</option>
-                      </Input>
+                      <select
+                        id="exampleSelect"
+                        name="select"
+                        className="col-12 p-2 border rounded-3"
+                        {...register("selectedOption", { required: true })}
+                      >
+                        <option value="">--Please choose an option--</option>
+                        <option value="Abhishek Mandal">Abhishek Mandal</option>
+                        <option value="Sunil Joshi">Sunil Joshi</option>
+                        <option value="Hemant Mhalsekar">
+                          Hemant Mhalsekar
+                        </option>
+                      </select>
+                      {errors.selectedOption && (
+                        <div className="error">Please choose an option.</div>
+                      )}
                     </FormGroup>
                   </div>
                 </Col>
@@ -214,11 +224,20 @@ const ProjectCreation = () => {
                   <div className="">
                     <FormGroup>
                       <Label for="exampleSelect">Status*:</Label>
-                      <Input id="exampleSelect" name="select" type="select">
+                      <select
+                        id="exampleSelect"
+                        name="select"
+                        className="col-12 p-2 border rounded-3"
+                        {...register("status", { required: true })}
+                      >
+                        <option value="">--Please choose an option--</option>
                         <option>On Going</option>
-                        <option>Pending</option>
                         <option>Completed</option>
-                      </Input>
+                        <option>Pending</option>
+                      </select>
+                      {errors.selectedOption && (
+                        <div className="error">Please choose an option.</div>
+                      )}
                     </FormGroup>
                   </div>
                 </Col>
