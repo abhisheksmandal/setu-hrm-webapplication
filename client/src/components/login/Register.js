@@ -26,7 +26,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { func } from "prop-types";
 import hash from "./PasswordHashing";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export default function Employees() {
@@ -80,37 +80,25 @@ export default function Employees() {
       },
       body: JSON.stringify(vals),
     })
-      // .catch((err) => {
-      //   return;
-      // })
       .then((response) => response.json())
-      // .then((data) => {
-      //   // console.log("Its working");
-      //   console.log(data);
-      //   // if (!data) return;
-      //   // console.log(data);
-      // });
       .then((data) => {
-        console.log(data); // this will log the entire response object
-        // console.log(data.PromiseResult); // this will log the value inside PromiseResult
-        // display the value in the frontend as needed
+        console.log(data);
       });
     otpBlock();
   };
 
-  // const linker = Link();
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const onReg2Submit = (values, actions) => {
     const vals = { ...values };
+
     // Hashing the password
     vals.password = hash.hash(vals.password);
 
-    //Hashing confirm password
+    // Hashing the confirm password
     vals.confirmPassword = hash.hash(vals.confirmPassword);
-    console.log(vals);
 
-    // actions.resetForm();
     fetch("http://localhost:4000/auth/reg2", {
       method: "POST",
       credentials: "include",
@@ -121,15 +109,18 @@ export default function Employees() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setMessage(data);
-        // actions.resetForm();
-        setTimeout(() => {
-          setMessage("");
-        }, 3000);
+        const messageString = JSON.stringify(data.validateMessage); // Convert the object to a string
+        setMessage(messageString);
+        console.log(messageString);
+        if (messageString === '"OTP is correct"') {
+          console.log("IT IS WORKING!");
+          navigate("/starter");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setMessage("An error occurred while submitting the form");
       });
-    // otpBlock();
-    // linker.push("/starter");
   };
 
   const password = watch("password");

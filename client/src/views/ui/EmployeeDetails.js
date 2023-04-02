@@ -25,6 +25,15 @@ import {
   NavLink,
   pills,
 } from "reactstrap";
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox,
+} from "mdb-react-ui-kit";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classnames from "classnames";
@@ -126,7 +135,7 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="FirstName">First Name:</Label>
-                                <input
+                                <MDBInput
                                   id="fName"
                                   name="name"
                                   type="text"
@@ -217,14 +226,33 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="Nation">Nationality</Label>
-                                <Input
+                                <select
+                                  id="exampleSelect"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("nationality", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>India</option>
+                                  <option>Other</option>
+                                </select>
+                                {errors.selectedOption && (
+                                  <div className="error">
+                                    Please choose an option.
+                                  </div>
+                                )}
+                                {/* <Input
                                   id="nation"
                                   name="Nationality"
                                   type="select"
                                 >
                                   <option>India</option>
                                   <option>Other</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col sm="4">
@@ -327,19 +355,13 @@ const EmployeeSearch = () => {
                               </FormGroup>
                             </Col>
                           </Row>
-                          <Button
-                          type="submit"
-                            color="primary"
-                            href=""
-                          >
+                          <Button type="submit" color="primary" href="">
                             Save & Proceed
                           </Button>
                         </Form>
                       </Container>
                       <Row className="mt-3">
-                        <Col className="text-center">
-                          
-                        </Col>
+                        <Col className="text-center"></Col>
                         <Col className="text-end">
                           <FormGroup>
                             <Button
