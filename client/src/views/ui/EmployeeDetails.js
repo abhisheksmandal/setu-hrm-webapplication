@@ -520,10 +520,10 @@ const EmployeeSearch = () => {
                                   id="basic"
                                   name="basic"
                                   type="text"
-                                  {...register("basic", { required: true })}
+                                  {...register("salaryBasic", { required: true })}
                                 />
                                 <div className="error">
-                                  {errors.basic?.type === "required" &&
+                                  {errors.salaryBasic?.type === "required" &&
                                     "Basic Salary is required"}
                                 </div>
                               </FormGroup>
@@ -535,10 +535,10 @@ const EmployeeSearch = () => {
                                   id="hra"
                                   name="hra"
                                   type="text"
-                                  {...register("hra", { required: true })}
+                                  {...register("salaryHra", { required: true })}
                                 />
                                 <div className="error">
-                                  {errors.hra?.type === "required" &&
+                                  {errors.salaryHra?.type === "required" &&
                                     "HRA is required"}
                                 </div>
                               </FormGroup>
@@ -552,10 +552,11 @@ const EmployeeSearch = () => {
                                   id="conveyance"
                                   name="conveyance"
                                   type="text"
-                                  {...register("conveyance", { required: true })}
+                                  {...register("salaryConveyance", { required: true })}
                                 />
                                 <div className="error">
-                                  {errors.conveyance?.type === "required" &&
+                                  {...register("salaryConveyance", { required: true })}
+                                  {errors.salaryConveyance?.type === "required" &&
                                     "Conveyance Allowance is required"}
                                 </div>
                               </FormGroup>
@@ -571,10 +572,10 @@ const EmployeeSearch = () => {
                                   id="internet"
                                   name="internet"
                                   type="text"
-                                  {...register("internet", { required: true })}
+                                  {...register("salaryInternet", { required: true })}
                                 />
                                 <div className="error">
-                                  {errors.internet?.type === "required" &&
+                                  {errors.salaryInternet?.type === "required" &&
                                     "Internet Allowance is required"}
                                 </div>
                               </FormGroup>
@@ -602,10 +603,10 @@ const EmployeeSearch = () => {
                                   name="total"
                                   type="text"
                                   disabled={true}
-                                  {...register("total", { required: true })}
+                                  {...register("salaryTotal", { required: true })}
                                 />
                                 <div className="error">
-                                  {errors.total?.type === "required" &&
+                                  {errors.salaryTotal?.type === "required" &&
                                     "Total Salary is required"}
                                 </div>
                               </FormGroup>
@@ -668,23 +669,51 @@ const EmployeeSearch = () => {
                             <Col xs="6">
                               <FormGroup>
                                 <Label for="BankName">Bank Name:</Label>
-                                <Input id="bank" name="bankName" type="select">
+                                <select
+                                  id="bankName"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("bankName", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
                                   <option>BOI</option>
                                   <option>SBI</option>
-                                </Input>
+                                </select>
+                                {/* <Input id="bank" name="bankName" type="select">
+                                  <option>BOI</option>
+                                  <option>SBI</option>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col xs="6">
                               <FormGroup>
                                 <Label for="BankBranch">Branch Name:</Label>
-                                <Input
+                                <select
+                                  id="bankBranch"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("bankBranch", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>Panjim</option>
+                                  <option>Mapusa</option>
+                                </select>
+                                {/* <Input
                                   id="branch"
                                   name="branchName"
                                   type="select"
                                 >
                                   <option>Panjim</option>
                                   <option>Mapusa</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                           </Row>
@@ -841,7 +870,24 @@ const EmployeeSearch = () => {
                                 <Label for="Relation">
                                   Relationship With Employee:
                                 </Label>
-                                <Input
+                                <select
+                                  id="relationship"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("relationship", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>Father</option>
+                                  <option>Mother</option>
+                                  <option>Brother</option>
+                                  <option>Sister</option>
+                                  <option>Other</option>
+                                </select>
+                                {/* <Input
                                   id="relation"
                                   name="realtionship"
                                   type="select"
@@ -852,7 +898,7 @@ const EmployeeSearch = () => {
                                   <option>Sister</option>
                                   <option>Friend</option>
                                   <option>Other</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
