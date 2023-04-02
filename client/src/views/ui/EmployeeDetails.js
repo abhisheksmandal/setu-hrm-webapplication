@@ -262,14 +262,33 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="Nation">Nationality</Label>
-                                <Input
+                                <select
+                                  id="exampleSelect"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("nationality", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>India</option>
+                                  <option>Other</option>
+                                </select>
+                                {errors.selectedOption && (
+                                  <div className="error">
+                                    Please choose an option.
+                                  </div>
+                                )}
+                                {/* <Input
                                   id="nation"
                                   name="Nationality"
                                   type="select"
                                 >
                                   <option>India</option>
                                   <option>Other</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col sm="4">
