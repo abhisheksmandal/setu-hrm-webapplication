@@ -1012,15 +1012,29 @@ const EmployeeSearch = () => {
                           <Row className="mt-3">
                             <Col xs="6">
                               <FormGroup>
-                                <Label for="Designation">Document Name:</Label>
-                                <Input
-                                  id="designation"
-                                  name="Designation"
+                                <Label for="document">Document Name:</Label>
+                                <select
+                                  id="document"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("document", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>Birth Certificate</option>
+                                  <option>HSSC Marksheet</option>
+                                </select>
+                                {/* <Input
+                                  id=""
+                                  name=""
                                   type="select"
                                 >
                                   <option>Birth Certificate</option>
                                   <option>HSSC Marksheet</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col xs="6">
