@@ -96,21 +96,52 @@ const TaskAllocation = () => {
                 <Col xs="6" sm="4">
                   <FormGroup>
                     <Label for="designation">Designation:*</Label>
-                    <Input id="desi" name="desi" type="select">
+                    <select
+                      id="exampleSelect"
+                      name="select"
+                      className="col-12 p-2 border rounded-3"
+                      {...register("taskDesignation", {
+                        required: true,
+                      })}
+                    >
+                      <option value="">--Please choose an option--</option>
                       <option>Manager</option>
                       <option>Tester</option>
-                    </Input>
+                    </select>
+                    {errors.selectedOption && (
+                      <div className="error">Please choose an option.</div>
+                    )}
+                    {/* <Input id="desi" name="desi" type="select">
+                      <option>Manager</option>
+                      <option>Tester</option>
+                    </Input> */}
                   </FormGroup>
                 </Col>
                 <Col xs="6" sm="4"></Col>
                 <Col sm="4">
                   <FormGroup>
                     <Label for="employee">Employee:*</Label>
-                    <Input id="emp" name="employee" type="select">
+                    <select
+                      id="exampleSelect"
+                      name="select"
+                      className="col-12 p-2 border rounded-3"
+                      {...register("taskEmployee", {
+                        required: true,
+                      })}
+                    >
+                      <option value="">--Please choose an option--</option>
                       <option>Tony Stark</option>
                       <option>Steve Rogers</option>
                       <option>Bruce Banner</option>
-                    </Input>
+                    </select>
+                    {errors.selectedOption && (
+                      <div className="error">Please choose an option.</div>
+                    )}
+                    {/* <Input id="emp" name="employee" type="select">
+                      <option>Tony Stark</option>
+                      <option>Steve Rogers</option>
+                      <option>Bruce Banner</option>
+                    </Input> */}
                   </FormGroup>
                 </Col>
               </Row>
@@ -124,6 +155,7 @@ const TaskAllocation = () => {
                     type="textarea"
                     placeholder="Enter your project description"
                   />
+                 
                 </FormGroup>
               </Row>
 
@@ -131,11 +163,27 @@ const TaskAllocation = () => {
                 <Col xs="6" sm="4">
                   <FormGroup>
                     <Label for="prio">Priority:*</Label>
-                    <Input id="priority" name="prio" type="select">
+                    <select
+                      id="exampleSelect"
+                      name="select"
+                      className="col-12 p-2 border rounded-3"
+                      {...register("taskPriority", {
+                        required: true,
+                      })}
+                    >
+                      <option value="">--Please choose an option--</option>
                       <option>Low</option>
                       <option>Medium</option>
                       <option>High</option>
-                    </Input>
+                    </select>
+                    {errors.selectedOption && (
+                      <div className="error">Please choose an option.</div>
+                    )}
+                    {/* <Input id="priority" name="prio" type="select">
+                      <option>Low</option>
+                      <option>Medium</option>
+                      <option>High</option>
+                    </Input> */}
                   </FormGroup>
                 </Col>
                 <Col sm="4"></Col>
@@ -208,7 +256,7 @@ const TaskAllocation = () => {
               </Row>
               <Row className="mt-3">
                 <Col className="text-center">
-                <Button id="registerBtn" type="submit" color="buttonColor">
+                  <Button id="registerBtn" type="submit" color="buttonColor">
                     Submit
                   </Button>
                   {/* <Button color="primary" href="task.js">
