@@ -76,10 +76,10 @@ const ProjectCreation = () => {
                         size="s"
                         placeholder="Enter your project name"
                         type="text"
-                        {...register("name", { required: true })}
+                        {...register("projectname", { required: true })}
                       />
                       <div className="error">
-                        {errors.name?.type === "required" &&
+                        {errors.projectname?.type === "required" &&
                           "Project Name is required"}
                       </div>
                     </FormGroup>
@@ -90,7 +90,19 @@ const ProjectCreation = () => {
                     {" "}
                     <FormGroup>
                       <Label for="exampleEmail">Type*:</Label>
-                      <Input id="exampleEmail" name="ProjectType" />
+                      <select
+                        name="select"
+                        className="col-12 p-2 border rounded-3"
+                        {...register("projecttype", { required: true })}
+                      >
+                        <option value="">--Please choose an option--</option>
+                        <option value="personal">Personal</option>
+                        <option value="external">External</option>
+                      </select>
+                      <div className="error">
+                        {errors.projecttype?.type === "required" &&
+                          "Project Type is required"}
+                      </div>
                     </FormGroup>
                   </div>
                 </Col>
@@ -105,10 +117,10 @@ const ProjectCreation = () => {
                         size="s"
                         // placeholder="Enter your project name"
                         type="date"
-                        {...register("startDate", { required: true })}
+                        {...register("projectstartDate", { required: true })}
                       />
                       <div className="error">
-                        {errors.startDate?.type === "required" &&
+                        {errors.projectstartDate?.type === "required" &&
                           "Start Date is required"}
                       </div>
                     </FormGroup>
@@ -124,10 +136,10 @@ const ProjectCreation = () => {
                         size="s"
                         // placeholder="Enter your project name"
                         type="date"
-                        {...register("endDate", { required: true })}
+                        {...register("projectendDate", { required: true })}
                       />
                       <div className="error">
-                        {errors.endDate?.type === "required" &&
+                        {errors.projectendDate?.type === "required" &&
                           "End Date is required"}
                       </div>
                     </FormGroup>
@@ -139,10 +151,10 @@ const ProjectCreation = () => {
                   <Label for="exampleText">Description*:</Label>
                   <MDBInput
                     type="textarea"
-                    {...register("description", { required: true })}
+                    {...register("projectdescription", { required: true })}
                   />
                   <div className="error">
-                    {errors.description?.type === "required" &&
+                    {errors.projectdescription?.type === "required" &&
                       "Description is required"}
                   </div>
                   {/* <MDBInput
@@ -164,10 +176,10 @@ const ProjectCreation = () => {
                       <Label for="exampleEmail">Budget*:</Label>
                       <MDBInput
                         type="number"
-                        {...register("budget", { required: true })}
+                        {...register("projectbudget", { required: true })}
                       />
                       <div className="error">
-                        {errors.budget?.type === "required" &&
+                        {errors.projectbudget?.type === "required" &&
                           "Budget is required"}
                       </div>
                     </FormGroup>
@@ -179,16 +191,15 @@ const ProjectCreation = () => {
                     <FormGroup>
                       <Label>Billable*:</Label>
                       <select
-                        id="exampleSelect"
                         name="select"
                         className="col-12 p-2 border rounded-3"
-                        {...register("billable", { required: true })}
+                        {...register("projectbillable", { required: true })}
                       >
                         <option value="">--Please choose an option--</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option>Yes</option>
+                        <option>No</option>
                       </select>
-                      {errors.selectedOption && (
+                      {errors.projectbillable && (
                         <div className="error">Please choose an option.</div>
                       )}
                     </FormGroup>
@@ -202,19 +213,16 @@ const ProjectCreation = () => {
                     <FormGroup>
                       <Label for="exampleSelect">Manager*:</Label>
                       <select
-                        id="exampleSelect"
                         name="select"
                         className="col-12 p-2 border rounded-3"
-                        {...register("selectedOption", { required: true })}
+                        {...register("projectmanager", { required: true })}
                       >
                         <option value="">--Please choose an option--</option>
-                        <option value="Abhishek Mandal">Abhishek Mandal</option>
-                        <option value="Sunil Joshi">Sunil Joshi</option>
-                        <option value="Hemant Mhalsekar">
-                          Hemant Mhalsekar
-                        </option>
+                        <option>Abhishek Mandal</option>
+                        <option>Sunil Joshi</option>
+                        <option>Hemant Mhalsekar</option>
                       </select>
-                      {errors.selectedOption && (
+                      {errors.projectmanager && (
                         <div className="error">Please choose an option.</div>
                       )}
                     </FormGroup>
@@ -225,17 +233,16 @@ const ProjectCreation = () => {
                     <FormGroup>
                       <Label for="exampleSelect">Status*:</Label>
                       <select
-                        id="exampleSelect"
                         name="select"
                         className="col-12 p-2 border rounded-3"
-                        {...register("status", { required: true })}
+                        {...register("projectstatus", { required: true })}
                       >
                         <option value="">--Please choose an option--</option>
                         <option>On Going</option>
                         <option>Completed</option>
                         <option>Pending</option>
                       </select>
-                      {errors.selectedOption && (
+                      {errors.projectstatus && (
                         <div className="error">Please choose an option.</div>
                       )}
                     </FormGroup>
@@ -253,7 +260,7 @@ const ProjectCreation = () => {
               > */}
                 <div className="button-group text-center">
                   <Button id="registerBtn" type="submit" color="buttonColor">
-                    Create new project
+                    Create New Project
                   </Button>
                   {/* <MDBInput
                     id="registerBtn"

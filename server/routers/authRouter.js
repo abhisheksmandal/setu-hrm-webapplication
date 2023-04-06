@@ -115,4 +115,53 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/projcreate", async (req, res) => {
+  let projectname = req.body.projectname;
+  console.log(`Project Name received: ${projectname}`);
+  let projecttype = req.body.projecttype;
+  console.log(`Project Type received: ${projecttype}`);
+  let projectstartDate = req.body.projectstartDate;
+  console.log(`Project Start Date received: ${projectstartDate}`);
+  let projectendDate = req.body.projectendDate;
+  console.log(`Project End Date received: ${projectendDate}`);
+  let projectdescription = req.body.projectdescription;
+  console.log(`Project Description received: ${projectdescription}`);
+  let projectbudget = req.body.projectbudget;
+  console.log(`Project Budget received: ${projectbudget}`);
+  let projectbillable = req.body.projectbillable;
+  console.log(`Project Billable received: ${projectbillable}`);
+  let projectmanager = req.body.projectmanager;
+  console.log(`Project Manager received: ${projectmanager}`);
+  let projectstatus = req.body.projectstatus;
+  console.log(`Project Status received: ${projectstatus}`);
+
+  try {
+    const pcCreate = await pool.query(
+      `SELECT public.project_create(
+        '${projectname}',
+        '${projecttype}',
+        '${projectstartDate}',
+        '${projectendDate}',
+        '${projectdescription}',
+        '${projectbudget}',
+        '${projectbillable}',
+        '${projectmanager}',
+        '${projectstatus}'
+    );`
+      // `SELECT public.project_create(
+      //   '${loginEmail}',
+      //   '${loginPass}'
+      // )`
+    );
+
+    const projectCreate = pcCreate.rows[0].project_create;
+    console.log(pcCreate);
+
+    res.json({ projectCreate });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Something went wrong");
+  }
+});
+
 module.exports = router;
