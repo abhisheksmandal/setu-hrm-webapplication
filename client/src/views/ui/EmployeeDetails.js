@@ -150,13 +150,31 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="MiddleName">Middle Name:</Label>
-                                <Input id="mName" name="name" type="text" />
+                                <MDBInput
+                                  id="mName"
+                                  name="name"
+                                  type="text"
+                                  {...register("mname", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.mname?.type === "required" &&
+                                    "Middle Name is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="LastName">Last Name:</Label>
-                                <Input id="lName" name="name" type="text" />
+                                <MDBInput
+                                  id="lName"
+                                  name="lname"
+                                  type="text"
+                                  {...register("lname", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.lname?.type === "required" &&
+                                    "Last Name is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -188,13 +206,31 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="BirthDate">DOB:</Label>
-                                <Input id="bDate" name="name" type="date" />
+                                <MDBInput
+                                  id="bDate"
+                                  name="name"
+                                  type="date"
+                                  {...register("bdate", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.bdate?.type === "required" &&
+                                    "Birthday date is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="Age">Age:</Label>
-                                <Input id="age" name="name" type="number" />
+                                <MDBInput
+                                  id="age"
+                                  name="name"
+                                  type="text"
+                                  {...register("age", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.age?.type === "required" &&
+                                    "Age is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -276,19 +312,46 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="City">City:</Label>
-                                <Input id="city" name="name" type="text" />
+                                <MDBInput
+                                  id="city"
+                                  name="name"
+                                  type="text"
+                                  {...register("city", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.city?.type === "required" &&
+                                    "City is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="State">State:</Label>
-                                <Input id="state" name="name" type="text" />
+                                <MDBInput
+                                  id="state"
+                                  name="name"
+                                  type="text"
+                                  {...register("state", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.state?.type === "required" &&
+                                    "State is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="Pin">Pincode:</Label>
-                                <Input id="pincode" name="name" type="text" />
+                                <MDBInput
+                                  id="pincode"
+                                  name="name"
+                                  type="text"
+                                  {...register("pincode", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.pincode?.type === "required" &&
+                                    "Pincode is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -297,20 +360,47 @@ const EmployeeSearch = () => {
                               <Label for="address">
                                 Street/Locality/Landmark
                               </Label>
-                              <Input id="address" name="add" type="textarea" />
+                              <MDBInput
+                                  id="address"
+                                  name="name"
+                                  type="textarea"
+                                  {...register("address", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.address?.type === "required" &&
+                                    "Address is required"}
+                                </div>
                             </FormGroup>
                           </Row>
                           <Row className="mt-3">
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="Email">Email Address:</Label>
-                                <Input id="email" name="email" type="text" />
+                                <MDBInput
+                                  id="email"
+                                  name="name"
+                                  type="text"
+                                  {...register("email", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.email?.type === "required" &&
+                                    "Email is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="Mobile">Mobile:</Label>
-                                <Input id="mobile" name="mobile" type="tel" />
+                                <MDBInput
+                                  id="mobile"
+                                  name="name"
+                                  type="tel"
+                                  {...register("mobile", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.mobile?.type === "required" &&
+                                    "Mobile number is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
@@ -331,27 +421,63 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="UAN">UAN no.:</Label>
-                                <Input id="uan" name="uan" type="text" />
+                                <MDBInput
+                                  id="uan"
+                                  name="uan"
+                                  type="text"
+                                  {...register("uan", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.uan?.type === "required" &&
+                                    "UAN is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="ESIC">ESIC no.:</Label>
-                                <Input id="esic" name="esic" type="text" />
+                                <MDBInput
+                                  id="esic"
+                                  name="esic"
+                                  type="text"
+                                  {...register("esic", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.esic?.type === "required" &&
+                                    "ESIC is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="PAN">PAN no.:</Label>
-                                <Input id="pan" name="pan" type="text" />
+                                <MDBInput
+                                  id="pan"
+                                  name="pan"
+                                  type="text"
+                                  {...register("pan", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.pan?.type === "required" &&
+                                    "PAN is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
                           <Row className="mt-3">
                             <Col xs="6" sm="4">
                               <FormGroup>
-                                <Label for="ADHAR">ADHAR no.:</Label>
-                                <Input id="adhar" name="adhar" type="text" />
+                                <Label for="AADHAR">AADHAR no.:</Label>
+                                <MDBInput
+                                  id="aadhar"
+                                  name="aadhar"
+                                  type="text"
+                                  {...register("aadhar", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.aadhar?.type === "required" &&
+                                    "Aadhar is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -390,13 +516,31 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="BasicSalary">Basic:</Label>
-                                <Input id="basic" name="basic" type="text" />
+                                <MDBInput
+                                  id="basic"
+                                  name="basic"
+                                  type="text"
+                                  {...register("salaryBasic", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.salaryBasic?.type === "required" &&
+                                    "Basic Salary is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="HRA">HRA:</Label>
-                                <Input id="hra" name="HRA" type="text" />
+                                <MDBInput
+                                  id="hra"
+                                  name="hra"
+                                  type="text"
+                                  {...register("salaryHra", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.salaryHra?.type === "required" &&
+                                    "HRA is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
@@ -404,11 +548,17 @@ const EmployeeSearch = () => {
                                 <Label for="ConveyanceAllowance">
                                   Conveyance Allowance:
                                 </Label>
-                                <Input
+                                <MDBInput
                                   id="conveyance"
                                   name="conveyance"
                                   type="text"
+                                  {...register("salaryConveyance", { required: true })}
                                 />
+                                <div className="error">
+                                  {...register("salaryConveyance", { required: true })}
+                                  {errors.salaryConveyance?.type === "required" &&
+                                    "Conveyance Allowance is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -418,28 +568,47 @@ const EmployeeSearch = () => {
                                 <Label for="InternetAllowance">
                                   Internet Allowance:
                                 </Label>
-                                <Input
+                                <MDBInput
                                   id="internet"
-                                  name="internetallowance"
+                                  name="internet"
                                   type="text"
+                                  {...register("salaryInternet", { required: true })}
                                 />
+                                <div className="error">
+                                  {errors.salaryInternet?.type === "required" &&
+                                    "Internet Allowance is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="PF">PF:</Label>
-                                <Input id="pf" name="PF" type="text" />
+                                <MDBInput
+                                  id="pf"
+                                  name="pf"
+                                  type="text"
+                                  {...register("pf", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.pf?.type === "required" &&
+                                    "PF is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="TotalSalary">Total:</Label>
-                                <Input
+                                <MDBInput
                                   id="total"
                                   name="total"
                                   type="text"
                                   disabled={true}
+                                  {...register("salaryTotal", { required: true })}
                                 />
+                                <div className="error">
+                                  {errors.salaryTotal?.type === "required" &&
+                                    "Total Salary is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -500,23 +669,51 @@ const EmployeeSearch = () => {
                             <Col xs="6">
                               <FormGroup>
                                 <Label for="BankName">Bank Name:</Label>
-                                <Input id="bank" name="bankName" type="select">
+                                <select
+                                  id="bankName"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("bankName", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
                                   <option>BOI</option>
                                   <option>SBI</option>
-                                </Input>
+                                </select>
+                                {/* <Input id="bank" name="bankName" type="select">
+                                  <option>BOI</option>
+                                  <option>SBI</option>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col xs="6">
                               <FormGroup>
                                 <Label for="BankBranch">Branch Name:</Label>
-                                <Input
+                                <select
+                                  id="bankBranch"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("bankBranch", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>Panjim</option>
+                                  <option>Mapusa</option>
+                                </select>
+                                {/* <Input
                                   id="branch"
                                   name="branchName"
                                   type="select"
                                 >
                                   <option>Panjim</option>
                                   <option>Mapusa</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                           </Row>
@@ -524,19 +721,46 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="IFSCcode">IFSC Code:</Label>
-                                <Input id="ifc" name="IFSC" type="text" />
+                                <MDBInput
+                                  id="ifsc"
+                                  name="ifsc"
+                                  type="text"
+                                  {...register("ifsc", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.ifsc?.type === "required" &&
+                                    "IFSC is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="MICRno">MICR:</Label>
-                                <Input id="MICR" name="MICR" type="text" />
+                                <MDBInput
+                                  id="micr"
+                                  name="micr"
+                                  type="text"
+                                  {...register("micr", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.micr?.type === "required" &&
+                                    "micr is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="AccountNo">Account No.:</Label>
-                                <Input id="acno" name="ACno" type="text" />
+                                <MDBInput
+                                  id="acno"
+                                  name="acno"
+                                  type="text"
+                                  {...register("acno", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.acno?.type === "required" &&
+                                    "Account number is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -597,19 +821,46 @@ const EmployeeSearch = () => {
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="FirstName">First Name:</Label>
-                                <Input id="fName" name="name" type="text" />
+                                <MDBInput
+                                  id="nomFName"
+                                  name="nomFName"
+                                  type="text"
+                                  {...register("nomFName", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.nomFName?.type === "required" &&
+                                    "First name is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
                               <FormGroup>
                                 <Label for="MiddleName">Middle Name:</Label>
-                                <Input id="mName" name="name" type="text" />
+                                <MDBInput
+                                  id="nomMName"
+                                  name="nomMName"
+                                  type="text"
+                                  {...register("nomMName", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.nomMName?.type === "required" &&
+                                    "Middle name is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="LastName">Last Name:</Label>
-                                <Input id="lName" name="name" type="text" />
+                                <MDBInput
+                                  id="nomLName"
+                                  name="nomLName"
+                                  type="text"
+                                  {...register("nomLName", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.nomLName?.type === "required" &&
+                                    "Last Name is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
@@ -619,7 +870,24 @@ const EmployeeSearch = () => {
                                 <Label for="Relation">
                                   Relationship With Employee:
                                 </Label>
-                                <Input
+                                <select
+                                  id="relationship"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("relationship", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>Father</option>
+                                  <option>Mother</option>
+                                  <option>Brother</option>
+                                  <option>Sister</option>
+                                  <option>Other</option>
+                                </select>
+                                {/* <Input
                                   id="relation"
                                   name="realtionship"
                                   type="select"
@@ -630,7 +898,7 @@ const EmployeeSearch = () => {
                                   <option>Sister</option>
                                   <option>Friend</option>
                                   <option>Other</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col xs="6" sm="4">
@@ -660,14 +928,32 @@ const EmployeeSearch = () => {
                             <Col sm="4">
                               <FormGroup>
                                 <Label for="Mobile">Phone No.:</Label>
-                                <Input id="mobile" name="mobile" type="tel" />
+                                <MDBInput
+                                  id="nomMobile"
+                                  name="nomMobile"
+                                  type="tel"
+                                  {...register("nomMobile", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.nomMobile?.type === "required" &&
+                                    "Mobile is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>
                           <Row className="mt-3">
                             <FormGroup>
                               <Label for="address">Address</Label>
-                              <Input id="address" name="add" type="textarea" />
+                              <MDBInput
+                                  id="nomAddress"
+                                  name="nomAddress"
+                                  type="textarea"
+                                  {...register("nomAddress", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.nomAddress?.type === "required" &&
+                                    "Address is required"}
+                                </div>
                             </FormGroup>
                           </Row>
                         </Form>
@@ -726,21 +1012,44 @@ const EmployeeSearch = () => {
                           <Row className="mt-3">
                             <Col xs="6">
                               <FormGroup>
-                                <Label for="Designation">Document Name:</Label>
-                                <Input
-                                  id="designation"
-                                  name="Designation"
+                                <Label for="document">Document Name:</Label>
+                                <select
+                                  id="document"
+                                  name="select"
+                                  className="col-12 p-2 border rounded-3"
+                                  {...register("document", {
+                                    required: true,
+                                  })}
+                                >
+                                  <option value="">
+                                    --Please choose an option--
+                                  </option>
+                                  <option>Birth Certificate</option>
+                                  <option>HSSC Marksheet</option>
+                                </select>
+                                {/* <Input
+                                  id=""
+                                  name=""
                                   type="select"
                                 >
                                   <option>Birth Certificate</option>
                                   <option>HSSC Marksheet</option>
-                                </Input>
+                                </Input> */}
                               </FormGroup>
                             </Col>
                             <Col xs="6">
                               <FormGroup>
                                 <Label for="File">File</Label>
-                                <Input id="file" name="f" type="file" />
+                                <MDBInput
+                                  id="file"
+                                  name="f"
+                                  type="file"
+                                  {...register("file", { required: true })}
+                                />
+                                <div className="error">
+                                  {errors.file?.type === "required" &&
+                                    "File is required"}
+                                </div>
                               </FormGroup>
                             </Col>
                           </Row>

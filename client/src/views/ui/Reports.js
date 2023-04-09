@@ -58,21 +58,45 @@ const Reports = () => {
                 <Col xs="6">
                   <FormGroup>
                     <Label for="exampleSelect">Types of Reports</Label>
-                    <Input id="exampleSelect" name="select" type="select">
+                    <select
+                      id="exampleSelect"
+                      name="select"
+                      className="col-12 p-2 border rounded-3"
+                      {...register("typeOfReport", {
+                        required: true,
+                      })}
+                    >
+                      <option value="">--Please choose an option--</option>
                       <option>Employee Report</option>
-                    </Input>
+                      <option>Other</option>
+                    </select>
+                    {/* <Input id="exampleSelect" name="select" type="select">
+                      <option>Employee Report</option>
+                    </Input> */}
                   </FormGroup>
                 </Col>
                 <Col xs="6">
                   <FormGroup>
                     <Label for="exampleSelect">Employee Name</Label>
-                    <Input id="exampleSelect" name="select" type="select">
+                    <select
+                      id="exampleSelect"
+                      name="select"
+                      className="col-12 p-2 border rounded-3"
+                      {...register("employeeName", {
+                        required: true,
+                      })}
+                    >
+                      <option value="">--Please choose an option--</option>
+                      <option>Abhishek Mandal</option>
+                      <option>Hemant Mhalsekar</option>
+                    </select>
+                    {/* <Input id="exampleSelect" name="select" type="select">
                       <option>Abhishek Mandal</option>
                       <option>Hemant </option>
                       <option>Sunil</option>
                       <option>Pranav</option>
                       <option>Pavan</option>
-                    </Input>
+                    </Input> */}
                   </FormGroup>
                 </Col>
               </Row>
