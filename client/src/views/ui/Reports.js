@@ -62,9 +62,6 @@ const Reports = () => {
                       id="exampleSelect"
                       name="select"
                       className="col-12 p-2 border rounded-3"
-                      {...register("typeOfReport", {
-                        required: true,
-                      })}
                     >
                       <option value="">--Please choose an option--</option>
                       <option>Employee Report</option>
@@ -82,9 +79,6 @@ const Reports = () => {
                       id="exampleSelect"
                       name="select"
                       className="col-12 p-2 border rounded-3"
-                      {...register("employeeName", {
-                        required: true,
-                      })}
                     >
                       <option value="">--Please choose an option--</option>
                       <option>Abhishek Mandal</option>
