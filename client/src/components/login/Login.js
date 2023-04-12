@@ -49,10 +49,14 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        const messageString = JSON.stringify(data.loginMessage); // Convert the object to a string
+        const messageString = JSON.stringify(data.loginMessage).replace(
+          /"/g,
+          ""
+        ); // Remove double quotes from the string
         setMessage(messageString);
         console.log(messageString);
-        if (messageString === '"Login successful"') {
+        if (messageString === "Login successful") {
+          // Compare to string without double quotes
           console.log(messageString);
           navigate("/starter");
         }

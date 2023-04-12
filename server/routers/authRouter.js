@@ -107,6 +107,7 @@ router.post("/login", async (req, res) => {
 
     const loginMessage = loginResult.rows[0].login_validate;
     console.log(loginResult);
+    console.log("Recieved from DB " + loginMessage);
 
     res.json({ loginMessage });
   } catch (err) {
